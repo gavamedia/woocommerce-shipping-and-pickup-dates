@@ -31,7 +31,7 @@ defined('ABSPATH') or die('No script kiddies, please!');
 //define('WP_DEBUG', true);
 
 
-echo 'Oh hi world.';
+echo 'Oh hi world...';
 
 
 
