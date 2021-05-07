@@ -29,6 +29,7 @@ echo <<<GAVA
 <div class="wrap">
 	<h1 class="wp-heading-inline">WooCommerce Shipping and Pickup Dates</h1>
 
+	<hr>
 	
 
 
