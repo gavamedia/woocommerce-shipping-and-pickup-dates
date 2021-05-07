@@ -31,11 +31,7 @@ $html_template = file_get_contents(plugin_dir_path( __FILE__ ) . '/html/index.ht
 $noticeHTML = '';
 $noticeText = 'Please enable shipping or pickup dates below.';
 if ($noticeText) {
-	$noticeHTML = <<<GAVA
-	<div id="wsapd_notice">
-		<p>$noticeText</p>
-	</div>
-GAVA;
+	$noticeHTML = "<div id=\"wsapd_notice\">$noticeText</div>";
 }
 $html_template = str_replace('{NOTICES}', $noticeHTML, $html_template);
 
