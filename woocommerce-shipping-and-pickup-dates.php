@@ -64,6 +64,13 @@ if (!class_exists('WSAPD_Plugin')) {
 
 
 		function pluginsLoaded() {
+			// Only on the plugin's admin page itself
+			$screen = get_current_screen();
+			if (!str_starts_with($screen['id'], 'woocommerce-shipping-and-pickup-dates')) return false;
+
+
+
+
 			$cssFilePath = plugin_dir_path( __FILE__ ) . self::CSS_FILE_PATH;
 			$cssURL = plugins_url(self::CSS_FILE_PATH, __FILE__);
 			
@@ -114,14 +121,7 @@ if (!class_exists('WSAPD_Plugin')) {
 			if (is_admin()) {
 				add_action('admin_menu', 'WSAPD_Plugin::addToAdminMenu');
 				add_action('admin_notices', 'WSAPD_Plugin::admin_notice__error' );
-
-
-				// Only on the plugin's admin page itself
-				$screen = get_current_screen();
-				//if (str_starts_with($screen['id'], '')) {
-				//	$screen->id
-					add_action('plugins_loaded', 'WSAPD_Plugin::pluginsLoaded');
-				//}
+				add_action('plugins_loaded', 'WSAPD_Plugin::pluginsLoaded');
 			}
 		}
 
