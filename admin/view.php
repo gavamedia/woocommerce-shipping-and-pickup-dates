@@ -32,7 +32,7 @@ $noticeHTML = '';
 $noticeText = 'Please enable shipping or pickup dates below.';
 if ($noticeText) {
 	$noticeHTML = <<<GAVA
-	<div id="" class="xnotice xnotice-info">
+	<div id="wsapd_notice">
 		<p>$noticeText</p>
 	</div>
 GAVA;

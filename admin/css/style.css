@@ -8,6 +8,13 @@
 }
 
 
+
+#wsapd_notice{
+	font-size:1.5em;
+	font-weight:bold;
+}
+
+
 /* TABS ******************************/
 .tab-wrap{
 	font-size:1.125em;
