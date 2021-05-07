@@ -26,6 +26,10 @@
 	color: #464646;
 }
 
+.wsapd-icon::before{
+	content: "\e006";
+}
+
 
 #wsapd_notice img{
 	height:1em;
