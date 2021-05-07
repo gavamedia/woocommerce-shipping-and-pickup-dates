@@ -68,6 +68,7 @@ if (!class_exists('WSAPD_Plugin')) {
 			$screen = get_current_screen();
 			if (!str_starts_with($screen['id'], 'woocommerce-shipping-and-pickup-dates')) return false;
 
+			else echo 'On da screen!!!';
 
 
 
@@ -108,7 +109,7 @@ if (!class_exists('WSAPD_Plugin')) {
 
 
 		function admin_notice__error() {
-			echo nl2br(print_r(get_current_screen(), true)) . '<div class="notice notice-info"><p>You have no shipping or pickup dates configured. Please <a href="/wp-admin/admin.php?page=woocommerce-shipping-and-pickup-dates%2Fadmin%2Fview.php">enable your shipping and pickup dates here</a>.</p></div>';
+			echo '<div class="notice notice-info"><p>You have no shipping or pickup dates configured. Please <a href="/wp-admin/admin.php?page=woocommerce-shipping-and-pickup-dates%2Fadmin%2Fview.php">enable your shipping and pickup dates here</a>.</p></div>';
 		}
 
 
