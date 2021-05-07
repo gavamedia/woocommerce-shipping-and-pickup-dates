@@ -28,7 +28,7 @@ $html_template = file_get_contents(plugin_dir_path( __FILE__ ) . '/html/index.ht
 
 
 // Add notices
-$noticeHTML = 'You have no shipping or pickup dates enabled';
+/*$noticeHTML = 'You have no shipping or pickup dates enabled';
 if ($noticeHTML) {
 	$noticeHTML = <<<GAVA
 	<div class="notice js-wc-plugin-framework-admin-notice error is-dismissible" data-plugin-id="bambora" data-message-id="bambora_credit_card-not-configured">
@@ -38,6 +38,6 @@ if ($noticeHTML) {
 GAVA;
 }
 $html_template = str_replace('{NOTICES}', $noticeHTML, $html_template);
-
+*/
 
 echo $html_template;
