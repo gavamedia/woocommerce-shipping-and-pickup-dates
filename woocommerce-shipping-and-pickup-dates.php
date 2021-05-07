@@ -42,11 +42,11 @@ if (!class_exists('WSAPD_Plugin')) {
 
 
 		function pluginsLoaded() {
-			$cssFilePath = plugin_dir_path( __FILE__ ) . CSS_FILE_PATH;
-			$cssURL = plugins_url(CSS_FILE_PATH, __FILE__);
+			$cssFilePath = plugin_dir_path( __FILE__ ) . self::CSS_FILE_PATH;
+			$cssURL = plugins_url(self::CSS_FILE_PATH, __FILE__);
 			
-			$jsFilePath = plugin_dir_path( __FILE__ ) . JS_FILE_PATH;
-			$jsURL = plugins_url(JS_FILE_PATH, __FILE__);
+			$jsFilePath = plugin_dir_path( __FILE__ ) . self::JS_FILE_PATH;
+			$jsURL = plugins_url(self::JS_FILE_PATH, __FILE__);
 			
 			//if (is_page('woocommerce-shipping-and-pickup-dates%2Fadmin%2Fview.php')) {
 				
