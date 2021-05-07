@@ -117,10 +117,11 @@ if (!class_exists('WSAPD_Plugin')) {
 
 
 				// Only on the plugin's admin page itself
-				if (get_current_screen()['id']) {
+				$screen = get_current_screen();
+				//if (str_starts_with($screen['id'], '')) {
 				//	$screen->id
 					add_action('plugins_loaded', 'WSAPD_Plugin::pluginsLoaded');
-				}
+				//}
 			}
 		}
 
