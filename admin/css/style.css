@@ -76,7 +76,7 @@
       -ms-flex-positive: 3;
           flex-grow: 3;
   text-align: center;
-  background:linear-gradient(0deg, #ebe2dd 0%, #fef7f3 75%);
+  background:linear-gradient(0deg, var(--e-context-primary-tint-1) 0%, var(--e-context-primary-tint-4) 75%);
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
