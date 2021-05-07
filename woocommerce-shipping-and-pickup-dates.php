@@ -6,7 +6,7 @@
  * Description: Extends WooCommerce to let customers choose a shipping or pickup date during checkout.
  * Author: GAVAMEDIA
  * Author URI: https://gavamedia.com
- * Version: 1.0.0
+ * Version: 1.0.1
  * Text Domain: woocommerce-shipping-and-pickup-dates
  *
  * Copyright: Copyright (c) 2021 GAVAMEDIA Corporation (support@gavamedia.com)
