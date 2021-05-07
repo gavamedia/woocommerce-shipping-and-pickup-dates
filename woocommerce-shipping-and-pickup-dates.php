@@ -64,7 +64,7 @@ if (!class_exists('WSAPD_Plugin')) {
 		}
 
 
-		function make_wsapd_page() {
+		function addToAdminMenu() {
 			add_menu_page(
 				'WooCommerce Shipping and Pickup Dates',
 				'Ship Dates',
@@ -90,9 +90,9 @@ if (!class_exists('WSAPD_Plugin')) {
 		public static function init() {
 			// Admin only
 			if (is_admin()) {
-				add_action('admin_menu', 'make_wsapd_page');
-				add_action('plugins_loaded', 'pluginsLoaded');
-				add_action('admin_notices', 'admin_notice__error' );
+				add_action('admin_menu', 'addToAdminMenu');
+				//add_action('plugins_loaded', 'pluginsLoaded');
+				//add_action('admin_notices', 'admin_notice__error' );
 			}
 		}
 
