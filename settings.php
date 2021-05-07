@@ -1,9 +1,7 @@
 <?php
 /**
- * Plugin Name: WooCommerce Shipping and Pickup Dates
  * Plugin URI: https://gavamedia.com
  * Documentation URI: https://gavamedia.com
- * Description: Extends WooCommerce to let customers choose a shipping or pickup date during checkout.
  * Author: GAVAMEDIA
  * Author URI: https://gavamedia.com
  * Version: 1.0.0
