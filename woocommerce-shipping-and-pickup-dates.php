@@ -80,7 +80,7 @@ function make_wsapd_page() {
 
 
 function sample_admin_notice__error() {
-	echo '<div class="notice notice-info"><p>You have no shipping or pickup dates configured. Please <a href="/wp-admin/admin.php?page=woocommerce-shipping-and-pickup-dates">enable your shipping and pickup dates here</a>.</p></div>';
+	echo '<div class="notice notice-info"><p>You have no shipping or pickup dates configured. Please <a href="/wp-admin/admin.php?page=woocommerce-shipping-and-pickup-dates%2Fadmin%2Fview.php">enable your shipping and pickup dates here</a>.</p></div>';
 }
 
 
