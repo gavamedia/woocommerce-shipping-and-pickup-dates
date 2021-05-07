@@ -19,7 +19,7 @@
   position: relative;
   list-style: none;
 	border-radius:.25em;
-  /*background:#fffcfb;*/
+  /*background:#fafafa;*/
   margin:2em .5em;
   box-shadow:0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	max-width:100%;
@@ -54,19 +54,19 @@
   border-bottom-left-radius: 0;
 }
 .tab:checked + label {
-  background: #fffcfb;
-  box-shadow: 0 -1px 0 #fffcfb inset;
+  background: #f8f8f8;
+  box-shadow: 0 -1px 0 #fafafa inset;
   cursor: default;
 	border-top: none;
 }
 .tab:checked + label:hover {
-  box-shadow: 0 -1px 0 #fffcfb inset;
-  background: #fffcfb;
+  box-shadow: 0 -1px 0 #fafafa inset;
+  background: #f8f8f8;
 }
 .tab + label {
   box-shadow: 0 -1px 0 #eee inset;
-	border-right: solid 1px #e1dbd7;
-	border-top:solid 2px #fef8f3;
+	border-right: solid 1px #e0e0e0;
+	border-top:solid 2px #ffffff;
   border-radius: .25em .25em 0 0;
   cursor: pointer;
   display: block;
@@ -76,7 +76,7 @@
       -ms-flex-positive: 3;
           flex-grow: 3;
   text-align: center;
-  background:linear-gradient(0deg, var(--e-context-primary-tint-1) 0%, var(--e-context-primary-tint-4) 75%);
+  background:linear-gradient(0deg, #eeeeee 0%, #ffffff 75%);
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -88,12 +88,12 @@
   padding:.75em;
 }
 .tab + label:hover {
-  background:linear-gradient(0deg, #f3ebe7 0%, #fef7f3 75%);
+  background:linear-gradient(0deg, #f1f1f1 0%, #fff 75%);
   box-shadow:0 1px 0 #f4f4f4 inset;
 }
 .tab__content {
   padding:2em;
-  background:#fffcfb;
+  background:#fafafa;
   position: absolute;
   z-index: -1;
   opacity: 0;
@@ -112,17 +112,3 @@
 
 
 
-
-
-/*
-======================================================================================
-  TABLETS / DESKTOP
-======================================================================================
-*
-@media screen and (min-width:768px) {
-		
-		.tab:checked:nth-of-type(1) ~ .tab__content:nth-of-type(1),.tab:checked:nth-of-type(2) ~ .tab__content:nth-of-type(2),.tab:checked:nth-of-type(3) ~ .tab__content:nth-of-type(3),.tab:checked:nth-of-type(4) ~ .tab__content:nth-of-type(4) {
-			width:100%;
-		}
-	}
-*/
