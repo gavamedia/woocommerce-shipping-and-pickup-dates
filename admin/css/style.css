@@ -5,7 +5,8 @@
 
 
 /* TABS ******************************/
-.tab-wrap {
+.tab-wrap{
+	font-size:1.125em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21,7 +22,7 @@
 	-webkit-transition:.3s box-shadow ease;
   transition:0.3s box-shadow ease;
 }
-.tab {
+.tab{
   display:none!important;
 }
 .tab:checked:nth-of-type(1) ~ .tab__content:nth-of-type(1),.tab:checked:nth-of-type(2) ~ .tab__content:nth-of-type(2),.tab:checked:nth-of-type(3) ~ .tab__content:nth-of-type(3),.tab:checked:nth-of-type(4) ~ .tab__content:nth-of-type(4) {
@@ -87,7 +88,6 @@
   box-shadow:0 1px 0 #f4f4f4 inset;
 }
 .tab__content {
-	font-size:1.25em;
   padding:2em;
   background:#fffcfb;
   position: absolute;
