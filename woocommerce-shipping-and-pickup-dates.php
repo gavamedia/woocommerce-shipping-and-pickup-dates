@@ -36,12 +36,11 @@ if (!class_exists('WSAPD_Plugin')) {
 	class WSAPD_Plugin {
 
 
+		const WSAPD_CSS_FILE_PATH = plugin_dir_path( __FILE__ ) . 'admin/style.css';
+		const WSAPD_CSS_URL = plugins_url('admin/style.css', __FILE__);
 
-		define('WSAPD_CSS_FILE_PATH', plugin_dir_path( __FILE__ ) . 'admin/style.css');
-		define('WSAPD_CSS_URL', plugins_url('admin/style.css', __FILE__));
-
-		define('WSAPD_JS_FILE_PATH', plugin_dir_path( __FILE__ ) . 'admin/script.js');
-		define('WSAPD_JS_URL', plugins_url('admin/script.js', __FILE__));
+		const WSAPD_JS_FILE_PATH = plugin_dir_path( __FILE__ ) . 'admin/script.js';
+		const WSAPD_JS_URL = plugins_url('admin/script.js', __FILE__);
 
 
 		function wsapd_plugins_loaded() {
