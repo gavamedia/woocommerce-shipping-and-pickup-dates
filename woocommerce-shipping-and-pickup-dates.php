@@ -48,7 +48,7 @@ function wsapd_plugins_loaded() {
 	//require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'initialize.php';
 	
 	
-	if (is_page('woocommerce-shipping-and-pickup-dates')) {
+	if (is_page('woocommerce-shipping-and-pickup-dates%2Fadmin%2Fview.php')) {
 		
 		
 		// Cache based on date modified
