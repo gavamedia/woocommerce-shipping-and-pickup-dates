@@ -48,14 +48,22 @@ function wsapd_plugins_loaded() {
 	//require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'initialize.php';
 	
 	
-	// Cache based on date modified
-	$wsapd_css_ver = date('Ymd-Gis', filemtime(WSAPD_CSS_FILE_PATH));
-	$wsapd_js_ver = date('Ymd-Gis', filemtime(WSAPD_JS_FILE_PATH));
+	if (is_page('woocommerce-shipping-and-pickup-dates')) {
+		
+		
+		// Cache based on date modified
+		$wsapd_css_ver = date('Ymd-Gis', filemtime(WSAPD_CSS_FILE_PATH));
+		$wsapd_js_ver = date('Ymd-Gis', filemtime(WSAPD_JS_FILE_PATH));
 
-	wp_enqueue_style('wsapd_css', WSAPD_CSS_URL, array(), $wsapd_css_ver);
-	wp_enqueue_script('wsapd_js', WSAPD_JS_URL, array(), $wsapd_js_ver);
+		wp_enqueue_style('wsapd_css', WSAPD_CSS_URL, array(), $wsapd_css_ver);
+		wp_enqueue_script('wsapd_js', WSAPD_JS_URL, array(), $wsapd_js_ver);
+		
 	
-	
+}
+
+
+
+
 	require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'settings.php';
 }
 
