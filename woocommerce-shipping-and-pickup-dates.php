@@ -124,7 +124,7 @@ function make_wsapd_page() {
 */
     add_menu_page(
 			'WooCommerce Shipping and Pickup Dates',
-			'Ship/Pickup Dates',
+			'Ship Dates',
 			'manage_options',
 			plugin_dir_path(__FILE__) . 'admin/view.php',
 			null,
