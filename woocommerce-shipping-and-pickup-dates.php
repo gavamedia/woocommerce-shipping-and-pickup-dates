@@ -67,11 +67,11 @@ if (!class_exists('WSAPD_Plugin')) {
 			// Only on the plugin's admin page itself
 			$screen = get_current_screen();
 			if (!str_starts_with($screen['id'], 'woocommerce-shipping-and-pickup-dates')) {
-				echo 'Not on the screen: ' . nl2br(print_r(get_current_screen(), true));
+				echo 'Not on the screen: ' . print_r(get_current_screen(), true);
 				return false;
 			}
 
-			else echo 'On da screen!!!';
+			else echo 'On da screen!!';
 
 
 
