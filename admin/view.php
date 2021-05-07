@@ -18,9 +18,6 @@
  * @copyright Copyright (c) 2021 GAVAMEDIA Corporation (support@gavamedia.com)
  * @license   https://www.mongodb.com/licensing/server-side-public-license Server Side Public License VERSION 1 or later
  *
- * xxxWoo: 187234:2i3u4oiu234329a3242387
- * xxxWC requires at least: 3.5
- * xxxWC tested up to: 5.1.0
  */
 
 

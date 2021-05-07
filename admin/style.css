@@ -1,3 +1,24 @@
+/**
+ * Plugin URI: https://gavamedia.com
+ * Documentation URI: https://gavamedia.com
+ * Author: GAVAMEDIA
+ * Author URI: https://gavamedia.com
+ * Version: 1.0.2
+ * Text Domain: woocommerce-shipping-and-pickup-dates
+ *
+ * Copyright: Copyright (c) 2021 GAVAMEDIA Corporation (support@gavamedia.com)
+ *
+ * License: Server Side Public License VERSION 1 or later
+ * License URI: https://www.mongodb.com/licensing/server-side-public-license
+ *
+ * @package   WooCommerceShippingAndPickupDates
+ * @author    GAVAMEDIA
+ * @category  Delivery and Shipping Options
+ * @copyright Copyright (c) 2021 GAVAMEDIA Corporation (support@gavamedia.com)
+ * @license   https://www.mongodb.com/licensing/server-side-public-license Server Side Public License VERSION 1 or later
+ *
+ */
+ 
 .wsapd-body{
 	margin:10px auto;
 	max-width:50em;
@@ -64,7 +85,7 @@
   list-style: none;
 	border-radius:.25em;
   /*background:#fafafa;*/
-  margin:3em .5em;
+  margin:3em 0;
   box-shadow:0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	max-width:100%;
 	-webkit-transition:.3s box-shadow ease;
