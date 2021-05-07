@@ -24,6 +24,6 @@
  */
 
 
-$html_template = file_get_contents(plugin_dir_path( __FILE__ ) . 'admin/html/index.html');
+$html_template = file_get_contents(plugin_dir_path( __FILE__ ) . '/html/index.html');
 
 echo $html_template;
