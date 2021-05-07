@@ -40,6 +40,10 @@ echo <<<GAVA
 		
 	<div id="ajax-response"></div>
 	<br class="clear">
+	
+</div>
+
+<div class="gava-hide">
 	<hr class="wp-header-end">
 </div>
 
