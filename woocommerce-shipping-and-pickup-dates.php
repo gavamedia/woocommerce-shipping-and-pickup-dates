@@ -58,7 +58,7 @@ function wsapd_plugins_loaded() {
 	
 	require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'settings.php';
 }
-add_action('plugins_loaded', 'wsapd_plugins_loaded');
+
 
 
 
@@ -76,4 +76,13 @@ function make_wsapd_page() {
 			20
 	);
 }
-add_action( 'admin_menu', 'make_wsapd_page' );
+
+
+
+// Admin only
+if (is_admin()) {
+	add_action( 'admin_menu', 'make_wsapd_page' );
+	add_action('plugins_loaded', 'wsapd_plugins_loaded');
+
+}
+
