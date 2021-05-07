@@ -29,33 +29,34 @@
 
 defined('ABSPATH') or die('No script kiddies, please!');
 //define('WP_DEBUG', true);
-
-
-
 if (!class_exists('WSAPD_Plugin')) {
 	class WSAPD_Plugin {
 
 
-		const WSAPD_CSS_FILE_PATH = plugin_dir_path( __FILE__ ) . 'admin/style.css';
-		const WSAPD_CSS_URL = plugins_url('admin/style.css', __FILE__);
-
-		const WSAPD_JS_FILE_PATH = plugin_dir_path( __FILE__ ) . 'admin/script.js';
-		const WSAPD_JS_URL = plugins_url('admin/script.js', __FILE__);
 
 
-		function wsapd_plugins_loaded() {
-			//require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'initialize.php';
+
+		const CSS_FILE_PATH = 'admin/style.css';
+		const JS_FILE_PATH = 'admin/script.js';
+		
+
+
+		function pluginsLoaded() {
+			$cssFilePath = plugin_dir_path( __FILE__ ) . CSS_FILE_PATH;
+			$cssURL = plugins_url(CSS_FILE_PATH, __FILE__);
 			
+			$jsFilePath = plugin_dir_path( __FILE__ ) . JS_FILE_PATH;
+			$jsURL = plugins_url(JS_FILE_PATH, __FILE__);
 			
 			//if (is_page('woocommerce-shipping-and-pickup-dates%2Fadmin%2Fview.php')) {
 				
 				
 				// Cache based on date modified
-				$wsapd_css_ver = date('Ymd-Gis', filemtime(WSAPD_CSS_FILE_PATH));
-				$wsapd_js_ver = date('Ymd-Gis', filemtime(WSAPD_JS_FILE_PATH));
+				$wsapd_css_ver = date('Ymd-Gis', filemtime($cssFilePath));
+				$wsapd_js_ver = date('Ymd-Gis', filemtime($jsFilePath));
 		
-				wp_enqueue_style('wsapd_css', WSAPD_CSS_URL, array(), $wsapd_css_ver);
-				wp_enqueue_script('wsapd_js', WSAPD_JS_URL, array(), $wsapd_js_ver);
+				wp_enqueue_style('wsapd_css', $cssURL, array(), $wsapd_css_ver);
+				wp_enqueue_script('wsapd_js', $jsURL, array(), $wsapd_js_ver);
 				
 			
 		
@@ -90,7 +91,7 @@ if (!class_exists('WSAPD_Plugin')) {
 			// Admin only
 			if (is_admin()) {
 				add_action('admin_menu', 'make_wsapd_page');
-				add_action('plugins_loaded', 'wsapd_plugins_loaded');
+				add_action('plugins_loaded', 'pluginsLoaded');
 				add_action('admin_notices', 'admin_notice__error' );
 			}
 		}
