@@ -33,24 +33,18 @@ defined('ABSPATH') or die('No script kiddies, please!');
 
 
 
-define('WSAPD_CSS_FILE_PATH', plugin_dir_path( __FILE__ ) . 'admin/css/style.js');
-define('WSAPD_CSS_URL', plugins_url('admin/css/style.js', __FILE__));
+
+define('WSAPD_CSS_FILE_PATH', plugin_dir_path( __FILE__ ) . 'admin/css/style.css');
+define('WSAPD_CSS_URL', plugins_url('admin/css/style.css', __FILE__));
 
 define('WSAPD_JS_FILE_PATH', plugin_dir_path( __FILE__ ) . 'admin/js/menus.js');
 define('WSAPD_JS_URL', plugins_url('admin/js/menus.js', __FILE__));
 
 
 
-/*
-function wsapd_str_contains($haystack, $needle) {
-	if (is_array($haystack)) return strpos(implode('|', $haystack), $needle) !== false;
-	else return strpos($haystack, $needle) !== false;
-}
-*/
 
 
-
-function wsapd_enqueue_scripts() {
+function wsapd_plugins_loaded() {
 	//require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'initialize.php';
 	
 	
@@ -64,7 +58,8 @@ function wsapd_enqueue_scripts() {
 	
 	require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'settings.php';
 }
-add_action('wp_enqueue_scripts', 'wsapd_enqueue_scripts');
+add_action('plugins_loaded', 'wsapd_plugins_loaded');
+
 
 
 
