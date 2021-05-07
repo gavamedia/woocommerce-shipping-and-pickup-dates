@@ -90,7 +90,7 @@ if (!class_exists('WSAPD_Plugin')) {
 		public static function init() {
 			// Admin only
 			if (is_admin()) {
-				add_action('admin_menu', 'addToAdminMenu');
+				add_action('admin_menu', 'WSAPD_Plugin::addToAdminMenu');
 				//add_action('plugins_loaded', 'pluginsLoaded');
 				//add_action('admin_notices', 'admin_notice__error' );
 			}
