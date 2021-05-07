@@ -35,8 +35,8 @@ defined('ABSPATH') or die('No script kiddies, please!');
 
 
 
-define('WSAPD_JS_FILE_PATH', plugin_dir_path( __FILE__ ) . 'js/menus.js');
-define('WSAPD_JS_URL', plugins_url('js/menus.js', __FILE__));
+define('WSAPD_JS_FILE_PATH', plugin_dir_path( __FILE__ ) . 'admin/js/menus.js');
+define('WSAPD_JS_URL', plugins_url('admin/js/menus.js', __FILE__));
 
 
 
