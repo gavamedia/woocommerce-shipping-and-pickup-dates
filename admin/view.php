@@ -24,28 +24,6 @@
  */
 
 
-echo <<<GAVA
+$html_template = file_get_contents(plugin_dir_path( __FILE__ ) . 'admin/html/index.html');
 
-<div class="wrap">
-	<h1 class="wp-heading-inline">WooCommerce Shipping and Pickup Dates</h1>
-
-	<hr>
-	
-
-
-	<select>
-		<option>2021 sometime...</option>
-		<option>2022 sometime...</option>
-	</select>
-		
-	<div id="ajax-response"></div>
-	<br class="clear">
-	
-</div>
-
-<div class="gava-hide">
-	<hr class="wp-header-end">
-</div>
-
-
-GAVA;
+echo html_template;
