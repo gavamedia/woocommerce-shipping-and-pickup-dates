@@ -12,7 +12,12 @@
 #wsapd-notice{
 	font-size:1.25em;
 	font-weight:bold;
-	margin: 1em 0;
+  padding: 1em;
+  margin: 1em 0;
+  background: var(--wc-highlight);
+  color: var(--wc-highligh-text);
+  border-radius:4px;
+  border-left:solid .25em rgba(0,0,0,.5);
 }
 
 .wsapd-icon{
@@ -22,8 +27,8 @@
 	font-variant: normal;
 	text-transform: none;
 	margin: 0;
+  padding:.125em;
 	line-height: 1.2em;
-	color: #464646;
 }
 
 .wsapd-icon-warn::before{
