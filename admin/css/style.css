@@ -26,9 +26,14 @@
 	color: #464646;
 }
 
-.wsapd-icon::before{
+.wsapd-icon-ship::before{
 	content: "\e006";
 }
+.wsapd-icon-warn::before{
+	content: "\e016";
+}
+
+
 
 
 #wsapd_notice img{
