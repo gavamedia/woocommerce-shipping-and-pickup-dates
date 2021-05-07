@@ -1,5 +1,9 @@
+.wsapd-body{
+	margin:10px auto;
+	max-width:100em;
+}
 
-.wsapd-gava-hide{
+.wsapd-hide{
 	display:none;
 }
 
@@ -99,6 +103,9 @@
   border-radius:.25em;
 	/*width:100%;*/
 }
+.tab:checked:nth-of-type(1) ~ .tab__content:nth-of-type(1),.tab:checked:nth-of-type(2) ~ .tab__content:nth-of-type(2),.tab:checked:nth-of-type(3) ~ .tab__content:nth-of-type(3),.tab:checked:nth-of-type(4) ~ .tab__content:nth-of-type(4) {
+	width:100%;
+}
 /* NEW ******************************/
 
 
@@ -111,10 +118,11 @@
 ======================================================================================
   TABLETS / DESKTOP
 ======================================================================================
-*/
+*
 @media screen and (min-width:768px) {
 		
 		.tab:checked:nth-of-type(1) ~ .tab__content:nth-of-type(1),.tab:checked:nth-of-type(2) ~ .tab__content:nth-of-type(2),.tab:checked:nth-of-type(3) ~ .tab__content:nth-of-type(3),.tab:checked:nth-of-type(4) ~ .tab__content:nth-of-type(4) {
 			width:100%;
 		}
 	}
+*/
