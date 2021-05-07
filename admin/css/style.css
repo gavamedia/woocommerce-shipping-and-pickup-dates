@@ -1,6 +1,6 @@
 .wsapd-body{
 	margin:10px auto;
-	max-width:80em;
+	max-width:50em;
 }
 
 .wsapd-hide{
@@ -26,11 +26,17 @@
 	color: #464646;
 }
 
-.wsapd-icon-ship::before{
-	content: "\e006";
-}
 .wsapd-icon-warn::before{
 	content: "\e016";
+}
+.wsapd-icon-ship::before{
+	content: "\e019";
+}
+.wsapd-icon-pickup::before{
+	content: "\e03a";
+}
+.wsapd-icon-settings::before{
+	content: "\e01c";
 }
 
 
@@ -53,7 +59,7 @@
   list-style: none;
 	border-radius:.25em;
   /*background:#fafafa;*/
-  margin:2em .5em;
+  margin:3em .5em;
   box-shadow:0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	max-width:100%;
 	-webkit-transition:.3s box-shadow ease;
