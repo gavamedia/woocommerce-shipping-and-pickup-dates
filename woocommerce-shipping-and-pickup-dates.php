@@ -79,7 +79,7 @@ if (!class_exists('WSAPD_Plugin')) {
 
 
 		function admin_notice__error() {
-			echo '<div class="notice notice-info">' . print_r(get_current_screen(), true) . '<p>You have no shipping or pickup dates configured. Please <a href="/wp-admin/admin.php?page=woocommerce-shipping-and-pickup-dates%2Fadmin%2Fview.php">enable your shipping and pickup dates here</a>.</p></div>';
+			echo nl2br(print_r(get_current_screen(), true)) . '<div class="notice notice-info"><p>You have no shipping or pickup dates configured. Please <a href="/wp-admin/admin.php?page=woocommerce-shipping-and-pickup-dates%2Fadmin%2Fview.php">enable your shipping and pickup dates here</a>.</p></div>';
 		}
 
 
@@ -91,8 +91,14 @@ if (!class_exists('WSAPD_Plugin')) {
 			// Admin only
 			if (is_admin()) {
 				add_action('admin_menu', 'WSAPD_Plugin::addToAdminMenu');
-				add_action('plugins_loaded', 'WSAPD_Plugin::pluginsLoaded');
 				add_action('admin_notices', 'WSAPD_Plugin::admin_notice__error' );
+
+
+				// Only on the plugin's admin page itself
+				if () {
+					$screen->id
+					add_action('plugins_loaded', 'WSAPD_Plugin::pluginsLoaded');
+				}
 			}
 		}
 
