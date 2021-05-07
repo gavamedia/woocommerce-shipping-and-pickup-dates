@@ -95,10 +95,10 @@ if (!class_exists('WSAPD_Plugin')) {
 
 
 				// Only on the plugin's admin page itself
-				if () {
-					$screen->id
+				//if () {
+				//	$screen->id
 					add_action('plugins_loaded', 'WSAPD_Plugin::pluginsLoaded');
-				}
+				//}
 			}
 		}
 
