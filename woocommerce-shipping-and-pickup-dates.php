@@ -81,7 +81,7 @@ function make_wsapd_page() {
 
 function sample_admin_notice__error() {
 	$class = 'notice notice-info';
-	$message = __('You have no shipping or pickup dates enabled', 'wsapd-text-domain');
+	$message = __('You have no shipping or pickup dates configured. Please <a href="/wp-admin/admin.php?page=woocommerce-shipping-and-pickup-dates">enable your shipping and pickup dates here</a>.', 'wsapd-text-domain');
 
 	printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) ); 
 }
@@ -90,8 +90,8 @@ function sample_admin_notice__error() {
 
 // Admin only
 if (is_admin()) {
-	add_action( 'admin_menu', 'make_wsapd_page' );
+	add_action('admin_menu', 'make_wsapd_page');
 	add_action('plugins_loaded', 'wsapd_plugins_loaded');
-	add_action( 'admin_notices', 'sample_admin_notice__error' );
+	add_action('admin_notices', 'sample_admin_notice__error' );
 }
 
