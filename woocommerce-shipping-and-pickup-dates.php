@@ -83,18 +83,16 @@ if (!class_exists('WSAPD_Plugin')) {
 
 
 
-		// Admin only
-		if (is_admin()) {
-			add_action('admin_menu', 'make_wsapd_page');
-			add_action('plugins_loaded', 'wsapd_plugins_loaded');
-			add_action('admin_notices', 'admin_notice__error' );
-		}
-
 
 		
 
 		public static function init() {
-			///
+			// Admin only
+			if (is_admin()) {
+				add_action('admin_menu', 'make_wsapd_page');
+				add_action('plugins_loaded', 'wsapd_plugins_loaded');
+				add_action('admin_notices', 'admin_notice__error' );
+			}
 		}
 
 	}
