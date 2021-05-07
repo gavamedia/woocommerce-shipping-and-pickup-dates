@@ -79,7 +79,7 @@ if (!class_exists('WSAPD_Plugin')) {
 
 
 		function admin_notice__error() {
-			echo '<div class="notice notice-info">' . get_current_screen() . '<p>You have no shipping or pickup dates configured. Please <a href="/wp-admin/admin.php?page=woocommerce-shipping-and-pickup-dates%2Fadmin%2Fview.php">enable your shipping and pickup dates here</a>.</p></div>';
+			echo '<div class="notice notice-info">' . print_r(get_current_screen(), true) . '<p>You have no shipping or pickup dates configured. Please <a href="/wp-admin/admin.php?page=woocommerce-shipping-and-pickup-dates%2Fadmin%2Fview.php">enable your shipping and pickup dates here</a>.</p></div>';
 		}
 
 
