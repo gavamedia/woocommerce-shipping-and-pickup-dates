@@ -11,11 +11,11 @@
 
 #wsapd-notice{
 	font-size:1.25em;
-	font-weight:bold;
+	font-weight:400;
   padding: 1em;
   margin: 1em 0;
   background: var(--wc-highlight);
-  color: var(--wc-highligh-text);
+  color: #fff;
   border-radius:4px;
   border-left:solid .25em rgba(0,0,0,.5);
 }

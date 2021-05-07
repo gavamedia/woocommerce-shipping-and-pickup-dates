@@ -24,7 +24,7 @@
  */
 
 
-$html_template = file_get_contents(plugin_dir_path( __FILE__ ) . '/html/index.html');
+$html_template = file_get_contents(plugin_dir_path( __FILE__ ) . '/index.html');
 
 
 // Add notices

@@ -34,11 +34,11 @@ defined('ABSPATH') or die('No script kiddies, please!');
 
 
 
-define('WSAPD_CSS_FILE_PATH', plugin_dir_path( __FILE__ ) . 'admin/css/style.css');
-define('WSAPD_CSS_URL', plugins_url('admin/css/style.css', __FILE__));
+define('WSAPD_CSS_FILE_PATH', plugin_dir_path( __FILE__ ) . 'admin/style.css');
+define('WSAPD_CSS_URL', plugins_url('admin/style.css', __FILE__));
 
-define('WSAPD_JS_FILE_PATH', plugin_dir_path( __FILE__ ) . 'admin/js/menus.js');
-define('WSAPD_JS_URL', plugins_url('admin/js/menus.js', __FILE__));
+define('WSAPD_JS_FILE_PATH', plugin_dir_path( __FILE__ ) . 'admin/menus.js');
+define('WSAPD_JS_URL', plugins_url('admin/menus.js', __FILE__));
 
 
 
