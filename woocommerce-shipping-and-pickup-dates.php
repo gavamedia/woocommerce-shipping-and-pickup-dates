@@ -33,7 +33,8 @@ defined('ABSPATH') or die('No script kiddies, please!');
 
 
 
-
+define('WSAPD_CSS_FILE_PATH', plugin_dir_path( __FILE__ ) . 'admin/css/style.js');
+define('WSAPD_CSS_URL', plugins_url('admin/css/style.js', __FILE__));
 
 define('WSAPD_JS_FILE_PATH', plugin_dir_path( __FILE__ ) . 'admin/js/menus.js');
 define('WSAPD_JS_URL', plugins_url('admin/js/menus.js', __FILE__));
@@ -49,20 +50,21 @@ function wsapd_str_contains($haystack, $needle) {
 
 
 
-function wsapd_plugins_loaded() {
+function wsapd_enqueue_scripts() {
 	//require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'initialize.php';
 	
 	
 	// Cache based on date modified
+	$wsapd_css_ver = date('Ymd-Gis', filemtime(WSAPD_CSS_FILE_PATH));
 	$wsapd_js_ver = date('Ymd-Gis', filemtime(WSAPD_JS_FILE_PATH));
+
+	wp_enqueue_style('wsapd_css', WSAPD_CSS_URL, array(), $wsapd_css_ver);
 	wp_enqueue_script('wsapd_js', WSAPD_JS_URL, array(), $wsapd_js_ver);
 	
 	
 	require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'settings.php';
 }
-add_action('plugins_loaded', 'wsapd_plugins_loaded', 30);
-
-
+add_action('wp_enqueue_scripts', 'wsapd_enqueue_scripts');
 
 
 
