@@ -1,2 +1,2 @@
 
-alert('Hi admins!');
+//alert('Hi admins!');
