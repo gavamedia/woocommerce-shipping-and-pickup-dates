@@ -4,7 +4,7 @@
  * Documentation URI: https://gavamedia.com
  * Author: GAVAMEDIA
  * Author URI: https://gavamedia.com
- * Version: 1.0.1
+ * Version: 1.0.2
  * Text Domain: woocommerce-shipping-and-pickup-dates
  *
  * Copyright: Copyright (c) 2021 GAVAMEDIA Corporation (support@gavamedia.com)
