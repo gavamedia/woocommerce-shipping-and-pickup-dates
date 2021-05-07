@@ -9,9 +9,26 @@
 
 
 
-#wsapd_notice{
-	font-size:1.5em;
+#wsapd-notice{
+	font-size:1.25em;
 	font-weight:bold;
+	margin: 1em 0;
+}
+
+.wsapd-icon{
+	font-family: WooCommerce;
+	speak: never;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	margin: 0;
+	line-height: 1.2em;
+	color: #464646;
+}
+
+
+#wsapd_notice img{
+	height:1em;
 }
 
 

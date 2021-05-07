@@ -29,7 +29,7 @@ $html_template = file_get_contents(plugin_dir_path( __FILE__ ) . '/html/index.ht
 
 // Add notices
 $noticeHTML = '';
-$noticeText = 'Please enable shipping or pickup dates below.';
+$noticeText = '<span class="wsapd-icon">&#e016;</span> Please enable shipping or pickup dates below.';
 if ($noticeText) {
 	$noticeHTML = "<div id=\"wsapd_notice\">$noticeText</div>";
 }
