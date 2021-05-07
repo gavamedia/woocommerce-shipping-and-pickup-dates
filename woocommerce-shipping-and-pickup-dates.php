@@ -28,6 +28,7 @@
 
 
 defined('ABSPATH') or die('No script kiddies, please!');
+require_once(ABSPATH . 'wp-admin/includes/screen.php');
 //define('WP_DEBUG', true);
 
 
@@ -56,17 +57,16 @@ if (!function_exists('str_contains')) {
 if (!class_exists('WSAPD_Plugin')) {
 	class WSAPD_Plugin {
 
-
-
 		const CSS_FILE_PATH = 'admin/style.css';
 		const JS_FILE_PATH = 'admin/script.js';
-		
+
+		private $screenID = null;
 
 
 		function pluginsLoaded() {
 			// Only on the plugin's admin page itself
-			//$screen = get_current_screen();
-			//if (!str_starts_with($screen['id'], 'woocommerce-shipping-and-pickup-dates')) return false;
+			$screen = get_current_screen();
+			if (!str_starts_with($screen['id'], 'woocommerce-shipping-and-pickup-dates')) return false;
 
 
 
