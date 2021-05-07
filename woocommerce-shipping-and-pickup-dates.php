@@ -52,11 +52,11 @@ if (!class_exists('WSAPD_Plugin')) {
 				
 				
 				// Cache based on date modified
-				$wsapd_css_ver = date('Ymd-Gis', filemtime($cssFilePath));
-				$wsapd_js_ver = date('Ymd-Gis', filemtime($jsFilePath));
+				$cssVersion = date('Ymd-Gis', filemtime($cssFilePath));
+				$jsVersion = date('Ymd-Gis', filemtime($jsFilePath));
 		
-				wp_enqueue_style('wsapd_css', $cssURL, array(), $wsapd_css_ver);
-				wp_enqueue_script('wsapd_js', $jsURL, array(), $wsapd_js_ver);
+				wp_enqueue_style('wsapd_css', $cssURL, array(), $cssVersion);
+				wp_enqueue_script('wsapd_js', $jsURL, array(), $jsVersion);
 				
 			
 		
@@ -91,8 +91,8 @@ if (!class_exists('WSAPD_Plugin')) {
 			// Admin only
 			if (is_admin()) {
 				add_action('admin_menu', 'WSAPD_Plugin::addToAdminMenu');
-				//add_action('plugins_loaded', 'pluginsLoaded');
-				//add_action('admin_notices', 'admin_notice__error' );
+				add_action('plugins_loaded', 'WSAPD_Plugin::pluginsLoaded');
+				add_action('admin_notices', 'WSAPD_Plugin::admin_notice__error' );
 			}
 		}
 
