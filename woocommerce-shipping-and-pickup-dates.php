@@ -64,14 +64,8 @@ if (!class_exists('WSAPD_Plugin')) {
 
 
 		function enqueueContent($hook) {
-			// Only on the plugin's admin page itself
-			if (!str_starts_with($hook, 'woocommerce-shipping-and-pickup-dates')) {
-				echo 'Not on the screen: ' . $hook;
-				return false;
-			}
-			else echo 'On the screen!!' . $hook;
-
-
+			// MUST be on the plugin's admin page
+			if (!str_starts_with($hook, 'woocommerce-shipping-and-pickup-dates')) return false;
 
 			$cssFilePath = plugin_dir_path( __FILE__ ) . self::CSS_FILE_PATH;
 			$cssURL = plugins_url(self::CSS_FILE_PATH, __FILE__);
