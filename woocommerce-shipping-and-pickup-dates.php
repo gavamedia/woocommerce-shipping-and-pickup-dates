@@ -65,14 +65,14 @@ if (!class_exists('WSAPD_Plugin')) {
 
 		function enqueueContent() {
 			// Only on the plugin's admin page itself
-			$screen = get_current_screen();
+			/*$screen = get_current_screen();
 			if (!str_starts_with($screen->id, 'woocommerce-shipping-and-pickup-dates')) {
 				echo 'Not on the screen: ' . print_r(get_current_screen(), true);
 				return false;
 			}
 
 			else echo 'On the screen!!';
-
+*/
 
 
 			$cssFilePath = plugin_dir_path( __FILE__ ) . self::CSS_FILE_PATH;
@@ -120,39 +120,28 @@ if (!class_exists('WSAPD_Plugin')) {
 
 
 
-
-		/**
-     * Eqnueues script
-     *
-    public function admin_scripts( $hook = '' ) {
-			if( empty( $hook ) )
-					$hook = bp_core_do_network_admin() ? str_replace( '-network', '', get_current_screen()->id ) : get_current_screen()->id;
-
-			// only loads the script if you are in one of your plugin's Administration screen
-			if( in_array( $hook, $this->hook_suffixes ) ) {
-					wp_enqueue_script( 'buddyplug-admin-js', $this->plugin_js .'admin.js', array( 'jquery' ), $this->version, 1 );
-			}				 
+		function my_enqueue($hook) {
+			// Only add to the edit.php admin page.
+			// See WP docs.
+			//if ('edit.php' !== $hook) {
+			//		return;
+			//}
+			wp_enqueue_script('my_custom_script', plugin_dir_url(__FILE__) . '/myscript.js?' . $hook);
 	}
-
-	private function setup_hooks() {
-			if( is_admin() ) {
-					add_action( bp_core_admin_hook(),         array( $this, 'admin_menus'     )        );
-					add_action( 'bp_admin_enqueue_scripts',   array( $this, 'admin_scripts'   ), 10, 1 );
-			}
-	}
-*/
-
-
+	
+	
 
 		
 
-		public static function init() {
+		public static function init($screenID) {
 			// Admin only
 			if (is_admin()) {
 				add_action('admin_menu', 'WSAPD_Plugin::addToAdminMenu');
 				add_action('admin_notices', 'WSAPD_Plugin::admin_notice__error' );
-				add_action('plugins_loaded', 'WSAPD_Plugin::enqueueContent');
+				//add_action('plugins_loaded', 'WSAPD_Plugin::enqueueContent');
 
+
+				add_action('admin_enqueue_scripts', 'WSAPD_Plugin::my_enqueue');
 
 				//add_action('wp_enqueue_scripts', 'WSAPD_Plugin::enqueueContent');
 			}
