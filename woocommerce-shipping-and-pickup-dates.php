@@ -63,16 +63,14 @@ if (!class_exists('WSAPD_Plugin')) {
 		private $screenID = null;
 
 
-		function enqueueContent() {
+		function enqueueContent($hook) {
 			// Only on the plugin's admin page itself
-			/*$screen = get_current_screen();
-			if (!str_starts_with($screen->id, 'woocommerce-shipping-and-pickup-dates')) {
-				echo 'Not on the screen: ' . print_r(get_current_screen(), true);
+			if (!str_starts_with($hook, 'woocommerce-shipping-and-pickup-dates')) {
+				echo 'Not on the screen: ' . $hook;
 				return false;
 			}
+			else echo 'On the screen!!' . $hook;
 
-			else echo 'On the screen!!';
-*/
 
 
 			$cssFilePath = plugin_dir_path( __FILE__ ) . self::CSS_FILE_PATH;
@@ -120,17 +118,6 @@ if (!class_exists('WSAPD_Plugin')) {
 
 
 
-		function my_enqueue($hook) {
-			// Only add to the edit.php admin page.
-			// See WP docs.
-			//if ('edit.php' !== $hook) {
-			//		return;
-			//}
-			wp_enqueue_script('my_custom_script', plugin_dir_url(__FILE__) . '/myscript.js?' . $hook);
-	}
-	
-	
-
 		
 
 		public static function init() {
@@ -138,12 +125,7 @@ if (!class_exists('WSAPD_Plugin')) {
 			if (is_admin()) {
 				add_action('admin_menu', 'WSAPD_Plugin::addToAdminMenu');
 				add_action('admin_notices', 'WSAPD_Plugin::admin_notice__error' );
-				//add_action('plugins_loaded', 'WSAPD_Plugin::enqueueContent');
-
-
-				add_action('admin_enqueue_scripts', 'WSAPD_Plugin::my_enqueue');
-
-				//add_action('wp_enqueue_scripts', 'WSAPD_Plugin::enqueueContent');
+				add_action('admin_enqueue_scripts', 'WSAPD_Plugin::enqueueContent');
 			}
 		}
 
