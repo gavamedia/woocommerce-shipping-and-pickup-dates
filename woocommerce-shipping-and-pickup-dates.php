@@ -133,7 +133,7 @@ if (!class_exists('WSAPD_Plugin')) {
 
 		
 
-		public static function init($screenID) {
+		public static function init() {
 			// Admin only
 			if (is_admin()) {
 				add_action('admin_menu', 'WSAPD_Plugin::addToAdminMenu');
