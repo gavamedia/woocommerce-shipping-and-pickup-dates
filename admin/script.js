@@ -28,14 +28,17 @@ function Get(el) {if (el) {if (typeof el === 'string' || !isNaN(el)) {if (el == 
 
 
 
+
 // Easily add events to elements
 if (!Element.prototype.AddEvent)
 	Element.prototype.AddEvent = function(eventName, callFunction) {
-		_AddEvent(this, eventName, callFunction);
+		if (this.addEventListener) this.addEventListener(eventName.substring(2), callFunction, true);
+  	else if (this.attachEvent) this.attachEvent(eventName, callFunction);
 	};
 if (!Element.prototype.RemoveEvent)
 	Element.prototype.RemoveEvent = function(eventName, callFunction) {
-		_RemoveEvent(this, eventName, callFunction);
+		if (this.removeEventListener) this.removeEventListener(eventName.substring(2), callFunction, true);
+  	else if (this.DetachEvent) this.DetachEvent(eventName, callFunction);
 	};
 
 
