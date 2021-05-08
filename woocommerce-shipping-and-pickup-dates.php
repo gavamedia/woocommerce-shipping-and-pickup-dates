@@ -66,12 +66,12 @@ if (!class_exists('WSAPD_Plugin')) {
 		function enqueueContent() {
 			// Only on the plugin's admin page itself
 			$screen = get_current_screen();
-			if (!str_starts_with($screen['id'], 'woocommerce-shipping-and-pickup-dates')) {
+			if (!str_starts_with($screen->id, 'woocommerce-shipping-and-pickup-dates')) {
 				echo 'Not on the screen: ' . print_r(get_current_screen(), true);
 				return false;
 			}
 
-			else echo 'On da screen!!';
+			else echo 'On the screen!!';
 
 
 
@@ -123,6 +123,31 @@ if (!class_exists('WSAPD_Plugin')) {
 						wp_enqueue_script('script-name', get_template_directory_uri().'/path-to-script-name.js', array( 'jquery' ), '', true);
 				}
 		}
+
+
+
+
+
+		/**
+     * Eqnueues script
+     *
+    public function admin_scripts( $hook = '' ) {
+			if( empty( $hook ) )
+					$hook = bp_core_do_network_admin() ? str_replace( '-network', '', get_current_screen()->id ) : get_current_screen()->id;
+
+			// only loads the script if you are in one of your plugin's Administration screen
+			if( in_array( $hook, $this->hook_suffixes ) ) {
+					wp_enqueue_script( 'buddyplug-admin-js', $this->plugin_js .'admin.js', array( 'jquery' ), $this->version, 1 );
+			}				 
+	}
+
+	private function setup_hooks() {
+			if( is_admin() ) {
+					add_action( bp_core_admin_hook(),         array( $this, 'admin_menus'     )        );
+					add_action( 'bp_admin_enqueue_scripts',   array( $this, 'admin_scripts'   ), 10, 1 );
+			}
+	}
+*/
 
 
 
