@@ -64,6 +64,10 @@
 .wsapd-icon-settings::before{
 	content: "\e01c";
 }
+.wsapd-icon-save::before{
+	content: "\e015";
+}
+
 
 
 
