@@ -117,13 +117,6 @@ if (!class_exists('WSAPD_Plugin')) {
 		
 		
 		
-		
-		function firstwd_enqueue() {
-				if (is_page('mypage')) {
-						wp_enqueue_script('script-name', get_template_directory_uri().'/path-to-script-name.js', array( 'jquery' ), '', true);
-				}
-		}
-
 
 
 
@@ -158,10 +151,10 @@ if (!class_exists('WSAPD_Plugin')) {
 			if (is_admin()) {
 				add_action('admin_menu', 'WSAPD_Plugin::addToAdminMenu');
 				add_action('admin_notices', 'WSAPD_Plugin::admin_notice__error' );
-				//add_action('plugins_loaded', 'WSAPD_Plugin::enqueueContent');
+				add_action('plugins_loaded', 'WSAPD_Plugin::enqueueContent');
 
 
-				add_action('wp_enqueue_scripts', 'WSAPD_Plugin::enqueueContent');
+				//add_action('wp_enqueue_scripts', 'WSAPD_Plugin::enqueueContent');
 			}
 		}
 
