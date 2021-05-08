@@ -3,7 +3,7 @@
 
 	<hr>
 
-	{NOTICES}
+	{{NOTICES}}
 
 
 	<div class="wsapd-align-right">
@@ -26,7 +26,8 @@
 		<label for="tab3"><span class="wsapd-icon wsapd-icon-settings"></span> Settings</label>
 
 		<div class="tab__content">
-			<label for="wsapd-enable-shipping-dates"><input id="wsapd-enable-shipping-dates" name="wsapd-enable-shipping-dates" type="checkbox">
+			<label for="wsapd-enable-shipping-dates">
+				<input id="wsapd-enable-shipping-dates" name="wsapd-enable-shipping-dates" type="checkbox" {{wsapd_enable_shipping_dates}}>
 				Show <b>shipping date</b> options to customers
 			</label>
 
@@ -41,7 +42,8 @@
 
 		</div>
 		<div class="tab__content">
-			<label for="wsapd-enable-pickup-dates"><input id="wsapd-enable-pickup-dates" name="wsapd-enable-pickup-dates" type="checkbox">
+			<label for="wsapd-enable-pickup-dates">
+				<input id="wsapd-enable-pickup-dates" name="wsapd-enable-pickup-dates" type="checkbox">
 				Show <b>pickup date</b> options to customers
 			</label>
 

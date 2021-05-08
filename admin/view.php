@@ -21,23 +21,34 @@
  */
 
 
-// add a new option
-//add_option('wsapd_custom_option', 'hello world!');
+$html_template = file_get_contents(plugin_dir_path( __FILE__ ) . '/index.html');
+
+
+
+
 
 // get an option
-$option = get_option('wsapd_custom_option');
+$wsapd_enable_shipping_dates = get_option('wsapd_enable_shipping_dates');
 
 
-$html_template = file_get_contents(plugin_dir_path( __FILE__ ) . '/index.html');
+
+if ($wsapd_enable_shipping_dates) $html_template = str_replace('{{wsapd_enable_shipping_dates}}', ' checked="true"', $html_template);
+
+
+
+
+
+
+
 
 
 // Add notices
 $noticeHTML = '';
 $noticeText = '<span class="wsapd-icon wsapd-icon-warn"></span> Please enable shipping or pickup dates below.';
 if ($noticeText) {
-	$noticeHTML = "<div id=\"wsapd-notice\">$noticeText  + $option</div>";
+	$noticeHTML = "<div id=\"wsapd-notice\">$noticeText</div>";
 }
-$html_template = str_replace('{NOTICES}', $noticeHTML, $html_template);
+$html_template = str_replace('{{NOTICES}}', $noticeHTML, $html_template);
 
 
 echo $html_template;
