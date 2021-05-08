@@ -22,7 +22,7 @@
 
 
 // add a new option
-add_option('wsapd_custom_option', 'hello world!');
+//add_option('wsapd_custom_option', 'hello world!');
 
 // get an option
 $option = get_option('wsapd_custom_option');
