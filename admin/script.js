@@ -70,14 +70,22 @@ function wsapd_STARTUP() {
 	let enableShippingDatesElm = Get('wsapd-enable-shipping-dates');
 	if (enableShippingDatesElm) enableShippingDatesElm.AddEvent('onchange', function() {
 		toggleAreaViaChecked(enableShippingDatesElm.checked, Get('wsapd-shipping-dates-area'), 'opacity', '1', '.5');
-		//toggleAreaViaChecked(!enableShippingDatesElm.checked, Get('wsapd-pickup-dates-area'), 'opacity', '1', '.5');
 	});
 
 	let enablePickupDatesElm = Get('wsapd-enable-pickup-dates');
 	if (enablePickupDatesElm) enablePickupDatesElm.AddEvent('onchange', function() {
 		toggleAreaViaChecked(enablePickupDatesElm.checked, Get('wsapd-pickup-dates-area'), 'opacity', '1', '.5');
-		//toggleAreaViaChecked(!enablePickupDatesElm.checked, Get('wsapd-shipping-dates-area'), 'opacity', '1', '.5');
 	});
+
+
+
+	// Load settings
+
+
+	// Apply settings
+	toggleAreaViaChecked(enableShippingDatesElm.checked, Get('wsapd-shipping-dates-area'), 'opacity', '1', '.5');
+	toggleAreaViaChecked(enablePickupDatesElm.checked, Get('wsapd-pickup-dates-area'), 'opacity', '1', '.5');
+
 
 }
 
