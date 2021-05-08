@@ -73,6 +73,18 @@
 }
 
 
+
+.wsapd-area{
+  padding:1em;
+  margin:1em;
+  box-shadow:0 .125em .25em rgba(0,0,0,.125) inset;
+  border-radius: 4px;
+  background-color:rgba(255,255,255,.125);
+}
+
+
+
+
 /* TABS ******************************/
 .tab-wrap{
 	font-size:1.125em;
