@@ -65,16 +65,28 @@
 	content: "\e01c";
 }
 .wsapd-icon-save::before{
-	content: "\e015";
+	content: "\e01d";
 }
 
 
 
-
-
-#wsapd_notice img{
-	height:1em;
+.wsapd-align-right{
+  text-align: right;
 }
+
+.wsapd-button{
+  cursor: pointer;
+  background-color: var(--wc-blue);
+  display: inline-block;
+  font-size: 1.5em;
+  color: #fff;
+  padding: .5em 1em;
+  border-radius: 4px;
+  border-bottom: solid .25em rgba(0,0,0,.25);
+}
+
+
+
 
 
 
