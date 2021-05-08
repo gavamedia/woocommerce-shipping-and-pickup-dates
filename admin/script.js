@@ -25,6 +25,25 @@ function Get(el) {if (el) {if (typeof el === 'string' || !isNaN(el)) {if (el == 
 
 
 
+
+
+
+// Easily add events to elements
+if (!Element.prototype.AddEvent)
+	Element.prototype.AddEvent = function(eventName, callFunction) {
+		_AddEvent(this, eventName, callFunction);
+	};
+if (!Element.prototype.RemoveEvent)
+	Element.prototype.RemoveEvent = function(eventName, callFunction) {
+		_RemoveEvent(this, eventName, callFunction);
+	};
+
+
+
+
+
+
+
 function toggleAreaViaChecked(isChecked, areaElm, styleToChange, styleValueIfChecked, styleValueIfUnChecked) {
 	areaElm.style[styleToChange] = isChecked ? styleValueIfChecked : styleValueIfUnChecked;
 	
@@ -46,13 +65,13 @@ function wsapd_STARTUP() {
 
 
 	let enableShippingDatesElm = Get('wsapd-enable-shipping-dates');
-	if (enableShippingDatesElm) enableShippingDatesElm.ae('onchange', function() {
+	if (enableShippingDatesElm) enableShippingDatesElm.AddEvent('onchange', function() {
 		toggleAreaViaChecked(enableShippingDatesElm.checked, Get('shipping-dates-area'), 'opacity', '1', '.5');
 		toggleAreaViaChecked(!enableShippingDatesElm.checked, Get('pickup-dates-area'), 'opacity', '1', '.5');
 	});
 
 	let enablePickupDatesElm = Get('wsapd-enable-pickup-dates');
-	if (enablePickupDatesElm) enablePickupDatesElm.ae('onchange', function() {
+	if (enablePickupDatesElm) enablePickupDatesElm.AddEvent('onchange', function() {
 		toggleAreaViaChecked(enablePickupDatesElm.checked, Get('pickup-dates-area'), 'opacity', '1', '.5');
 		toggleAreaViaChecked(!enablePickupDatesElm.checked, Get('shipping-dates-area'), 'opacity', '1', '.5');
 	});
