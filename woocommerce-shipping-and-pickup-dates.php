@@ -28,7 +28,6 @@
 
 
 defined('ABSPATH') or die('No script kiddies, please!');
-//require_once(ABSPATH . 'wp-admin/includes/screen.php');
 //define('WP_DEBUG', true);
 
 

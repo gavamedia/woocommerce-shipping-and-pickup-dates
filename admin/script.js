@@ -37,17 +37,26 @@ function toggleAreaViaChecked(isChecked, areaElm, styleToChange, styleValueIfChe
 
 
 
-let shipOrderElm = Get('ship-order');
-if (shipOrderElm) shipOrderElm.ae('onchange', function() {
-	toggleAreaViaChecked(shipOrderElm.checked, Get('shipping-method-area'), 'opacity', '1', '.5');
-	toggleAreaViaChecked(!shipOrderElm.checked, Get('pickup-area'), 'opacity', '1', '.5');
-});
 
 
 
 
 function wsapd_STARTUP() {
-	alert('loaded!');
+	//alert('loaded!');
+
+
+	let enableShippingDatesElm = Get('wsapd-enable-shipping-dates');
+	if (enableShippingDatesElm) enableShippingDatesElm.ae('onchange', function() {
+		toggleAreaViaChecked(enableShippingDatesElm.checked, Get('shipping-dates-area'), 'opacity', '1', '.5');
+		toggleAreaViaChecked(!enableShippingDatesElm.checked, Get('pickup-dates-area'), 'opacity', '1', '.5');
+	});
+
+	let enablePickupDatesElm = Get('wsapd-enable-pickup-dates');
+	if (enablePickupDatesElm) enablePickupDatesElm.ae('onchange', function() {
+		toggleAreaViaChecked(enablePickupDatesElm.checked, Get('pickup-dates-area'), 'opacity', '1', '.5');
+		toggleAreaViaChecked(!enablePickupDatesElm.checked, Get('shipping-dates-area'), 'opacity', '1', '.5');
+	});
+
 }
 
 
