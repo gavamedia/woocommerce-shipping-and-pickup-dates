@@ -115,7 +115,7 @@ if (!class_exists('WSAPD_Plugin')) {
 		}
 
 		// This bit is a special action hook that works with the WordPress AJAX functionality. 
-		add_action( 'wp_ajax_example_ajax_request', 'example_ajax_request' );
+		//add_action( 'wp_ajax_example_ajax_request', 'example_ajax_request' );
 
 
 
