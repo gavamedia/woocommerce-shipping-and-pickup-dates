@@ -216,7 +216,7 @@ function wsapdSave() {
 
 
 
-function wsapd_STARTUP() {
+function wsapd_STARTUP($) {
 	//alert('loaded!');
 
 
@@ -246,8 +246,13 @@ function wsapd_STARTUP() {
 
 
 
+let $ = null;
 
-jQuery(document).ready(function($) {
+
+
+jQuery(document).ready(function($jQuery) {
+	$ = $jQuery;
+	
 	wsapd_STARTUP();
 	//$("#datepicker").datepicker();
 });
