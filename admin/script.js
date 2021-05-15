@@ -247,6 +247,13 @@ function wsapd_STARTUP() {
 
 
 
+jQuery(document).ready(function($) {
+	wsapd_STARTUP();
+	//$("#datepicker").datepicker();
+});
+
+
+/*
 
 if (document.addEventListener) document.addEventListener('DOMContentLoaded', function() {
 	setTimeout(wsapd_STARTUP, 1);
@@ -256,4 +263,4 @@ else if (document.attachEvent) document.attachEvent('onreadystatechange', functi
 		setTimeout(wsapd_STARTUP, 1);
 		document.detachEvent('onreadystatechange', arguments.callee);
 	}
-});
+});*/

@@ -154,6 +154,8 @@ if (!class_exists('WSAPD_Plugin')) {
 				add_action('admin_notices', 'WSAPD_Plugin::admin_notice__error' );
 				add_action('admin_enqueue_scripts', 'WSAPD_Plugin::enqueueContent');
 
+				//wp_enqueue_script( 'jquery' );
+
 				// This bit is a special action hook that works with the WordPress AJAX functionality. 
 				add_action( 'wp_ajax_example_ajax_request', 'example_ajax_request' );
 
