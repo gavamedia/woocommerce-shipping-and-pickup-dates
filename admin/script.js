@@ -21,13 +21,10 @@
 
 
 
-function Get(el) {if (el) {if (typeof el === 'string' || !isNaN(el)) {if (el == 'document.body') return document.body;return document.getElementById(el);}else {if (el.id) {if (document.getElementById(el.id)) return document.getElementById(el.id);else if (typeof el !== null) return el;}else return el;}}return false;}
-
-
-
-
-
-
+// Easily get elements
+if (typeof GavaGet !== 'function') {
+	function GavaGet(el) {if (el) {if (typeof el === 'string' || !isNaN(el)) {if (el == 'document.body') return document.body;return document.getElementById(el);}else {if (el.id) {if (document.getElementById(el.id)) return document.getElementById(el.id);else if (typeof el !== null) return el;}else return el;}}return false;}
+}
 
 // Easily add events to elements
 if (!Element.prototype.AddEvent)
@@ -60,6 +57,11 @@ function toggleAreaViaChecked(isChecked, areaElm, styleToChange, styleValueIfChe
 
 
 
+function wsapdSave() {
+	alert('save it yo');
+}
+
+
 
 
 
@@ -67,14 +69,14 @@ function wsapd_STARTUP() {
 	//alert('loaded!');
 
 
-	let enableShippingDatesElm = Get('wsapd-enable-shipping-dates');
+	let enableShippingDatesElm = GavaGet('wsapd-enable-shipping-dates');
 	if (enableShippingDatesElm) enableShippingDatesElm.AddEvent('onchange', function() {
-		toggleAreaViaChecked(enableShippingDatesElm.checked, Get('wsapd-shipping-dates-area'), 'opacity', '1', '.5');
+		toggleAreaViaChecked(enableShippingDatesElm.checked, GavaGet('wsapd-shipping-dates-area'), 'opacity', '1', '.5');
 	});
 
-	let enablePickupDatesElm = Get('wsapd-enable-pickup-dates');
+	let enablePickupDatesElm = GavaGet('wsapd-enable-pickup-dates');
 	if (enablePickupDatesElm) enablePickupDatesElm.AddEvent('onchange', function() {
-		toggleAreaViaChecked(enablePickupDatesElm.checked, Get('wsapd-pickup-dates-area'), 'opacity', '1', '.5');
+		toggleAreaViaChecked(enablePickupDatesElm.checked, GavaGet('wsapd-pickup-dates-area'), 'opacity', '1', '.5');
 	});
 
 
@@ -83,9 +85,11 @@ function wsapd_STARTUP() {
 
 
 	// Apply settings
-	toggleAreaViaChecked(enableShippingDatesElm.checked, Get('wsapd-shipping-dates-area'), 'opacity', '1', '.5');
-	toggleAreaViaChecked(enablePickupDatesElm.checked, Get('wsapd-pickup-dates-area'), 'opacity', '1', '.5');
+	toggleAreaViaChecked(enableShippingDatesElm.checked, GavaGet('wsapd-shipping-dates-area'), 'opacity', '1', '.5');
+	toggleAreaViaChecked(enablePickupDatesElm.checked, GavaGet('wsapd-pickup-dates-area'), 'opacity', '1', '.5');
 
+
+	GavaGet('wsapd-save-button').AddEvent('onclick', wsapdSave);
 
 }
 
