@@ -193,7 +193,7 @@ function wsapdSave() {
 	let ajax = new XMLHttpRequest();
 
 
-	gavaAjax(serverFunctionName, parameters, returnFunction, cancelID)
+	gavaAjax(serverFunctionName, parameters, returnFunction, cancelID);
 
 	// This does the ajax request (The Call).
 	/*$.ajax({
