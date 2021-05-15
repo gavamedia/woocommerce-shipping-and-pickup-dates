@@ -88,6 +88,23 @@ if (!class_exists('WSAPD_Plugin')) {
 		}
 
 
+		function pw_load_scripts() {
+ 
+			wp_enqueue_script('pw-script', plugin_dir_url( __FILE__ ) . 'js/pw-script.js');
+			wp_localize_script('pw-script', 'pw_script_vars', array(
+					'alert' => __('Hey! You have clicked the button!', 'pippin')
+				)
+			);
+		 
+		}
+		add_action('wp_enqueue_scripts', 'pw_load_scripts');
+
+
+
+
+
+
+
 		function addToAdminMenu() {
 			add_menu_page(
 				'WooCommerce Shipping and Pickup Dates',
