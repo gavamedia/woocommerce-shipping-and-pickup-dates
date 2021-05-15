@@ -58,7 +58,30 @@ function toggleAreaViaChecked(isChecked, areaElm, styleToChange, styleValueIfChe
 
 
 function wsapdSave() {
-	alert('save it yo');
+	//alert('save it yo');
+
+
+
+	// This is the variable we are passing via AJAX
+	var fruit = 'Banana';
+
+	// This does the ajax request (The Call).
+	$.ajax({
+		url: ajaxurl, // admin-ajax.php
+		data: {
+			'action':'example_ajax_request', // This is our PHP function below
+			'fruit' : fruit // This is the variable we are sending via AJAX
+		},
+		success: function(data) {
+			// This outputs the result of the ajax request (The Callback)
+			window.alert(data);
+		},  
+		error: function(errorThrown) {
+			window.alert(errorThrown);
+		}
+	});
+
+
 }
 
 

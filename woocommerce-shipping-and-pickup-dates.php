@@ -52,9 +52,9 @@ if (!function_exists('str_contains')) {
 }
 
 
-
 if (!class_exists('WSAPD_Plugin')) {
 	class WSAPD_Plugin {
+
 
 		const CSS_FILE_PATH = 'admin/style.css';
 		const JS_FILE_PATH = 'admin/script.js';
@@ -74,31 +74,48 @@ if (!class_exists('WSAPD_Plugin')) {
 			
 			//if (is_page('woocommerce-shipping-and-pickup-dates%2Fadmin%2Fview.php')) {
 				
-				
-				// Cache based on date modified
-				$cssVersion = date('Ymd-Gis', filemtime($cssFilePath));
-				$jsVersion = date('Ymd-Gis', filemtime($jsFilePath));
-		
-				wp_enqueue_style('wsapd_css', $cssURL, array(), $cssVersion);
-				wp_enqueue_script('wsapd_js', $jsURL, array(), $jsVersion);
-				
+			
+			// Cache based on date modified
+			$cssVersion = date('Ymd-Gis', filemtime($cssFilePath));
+			$jsVersion = date('Ymd-Gis', filemtime($jsFilePath));
+	
+			wp_enqueue_style('wsapd_css', $cssURL, array(), $cssVersion);
+			wp_enqueue_script('wsapd_js', $jsURL, array(), $jsVersion);
+
+			/*wp_localize_script('wsapd_js', 'wsapd_js_vars', array(
+					'alert' => __('Hey! You have clicked the button!', 'gava')
+				)
+			);*/
+
 			
 		
 			require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'settings.php';
 		}
 
+		
 
-		function pw_load_scripts() {
- 
-			wp_enqueue_script('pw-script', plugin_dir_url( __FILE__ ) . 'js/pw-script.js');
-			wp_localize_script('pw-script', 'pw_script_vars', array(
-					'alert' => __('Hey! You have clicked the button!', 'pippin')
-				)
-			);
-		 
+		function example_ajax_request() {
+
+				// The $_REQUEST contains all the data sent via AJAX from the Javascript call
+				if ( isset($_REQUEST) ) {
+
+						$fruit = $_REQUEST['fruit'];
+
+						// This bit is going to process our fruit variable into an Apple
+						if ( $fruit == 'Banana' ) {
+								$fruit = 'Apple';
+						}
+
+						// Now let's return the result to the Javascript function (The Callback) 
+						echo $fruit;        
+				}
+
+				// Always die in functions echoing AJAX content
+				die();
 		}
-		add_action('wp_enqueue_scripts', 'pw_load_scripts');
 
+		// This bit is a special action hook that works with the WordPress AJAX functionality. 
+		add_action( 'wp_ajax_example_ajax_request', 'example_ajax_request' );
 
 
 
