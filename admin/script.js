@@ -43,6 +43,120 @@ if (!Element.prototype.RemoveEvent)
 
 
 
+// Easily handle AJAX
+if (typeof runningAjaxCalls === 'undefined') {
+
+	let runningAjaxCalls = [];
+
+
+
+
+	function gavaAjaxCallOnReadyStateChange(e) {
+
+		let eReadyState = e.readyState;
+		let thisReadyState = this.readyState;
+		
+		
+		if (runningAjaxCalls[callID].readyState == 4) {
+				
+			// Include unique ajax call ID back to return return functions
+			runningAjaxCalls[callID]['CallID'] = callID;
+
+			
+			if (runningAjaxCalls[callID].status == 401) {
+				if (typeof window.LoginRequired == 'function') {
+					CallAfterLoginFunctionID = FunctionID;
+					CallAfterLoginParameters = Parameters;
+					CallAfterLoginReturnFunction = ReturnFunction;
+					LoginRequired();
+				}
+				else ShowDialog('<h2>Login Required</h2><br>Please login to continue.', 'loginRequiredResponseBackup', 330, 145, false);
+			}
+			else if (runningAjaxCalls[callID].status == 403) {
+				ShowDialog('<h2>Access Denied</h2><br>You do not have permission to perform this action.', null, 330, 145, false);
+				setTimeout(function(){if (typeof ReturnFunction == 'function') ReturnFunction(runningAjaxCalls[callID]);}, 400);
+			}
+			else {
+				if (typeof ReturnFunction == 'function') ReturnFunction(runningAjaxCalls[callID]);
+			}
+			
+			
+			// DONE. Remove from running list
+			delete runningAjaxCalls[callID];
+		}
+	}
+
+
+
+	function gavaMaybeAbortThisOrOtherAjaxCall(callID, cancelID) {
+		let abortThis = false;
+
+		// Already running
+		let runningAjaxObj = null;
+		try { runningAjaxObj = runningAjaxCalls[callID]; } catch(x){}
+
+		if (runningAjaxObj) {
+			// Cancel others, but run this
+			if (cancelID) runningAjaxCalls[callID].abort();
+
+			// Or cancel this
+			else abortThis = true;
+		}
+
+		return abortThis;
+	}
+
+
+
+
+
+
+	/**
+	 * Calls an app's server-side function
+	 * If cancelID is set, it will cancel other pending calls with the same id,
+	 * even though parameters may be different
+	 */
+	function gavaAjax(serverFunctionName, parameters, returnFunction, cancelID) {
+
+		let callID = null;
+		if (cancelID) callID = encodeURIComponent(cancelID);
+		else callID = encodeURIComponent(serverFunctionName + parameters + returnFunction);
+		
+
+		// Already running. Cancel others and run this, or cancel this
+		if (gavaMaybeAbortThisOrOtherAjaxCall(callID, cancelID)) return false;
+
+
+		// Create the ajax obj
+		runningAjaxCalls[callID] = new XMLHttpRequest();
+
+
+		
+		// Prepare all parameters, and prevent cached response
+		let params = 'r=' + FunctionID;
+		if (Parameters) params += '&' + Parameters;
+		
+
+		// Send proper header information
+		runningAjaxCalls[callID].open('POST', '/_a', true);
+		runningAjaxCalls[callID].setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+		// Execute return function when ready
+		runningAjaxCalls[callID].onreadystatechange = gavaAjaxCallOnReadyStateChange;
+		
+		
+
+	}
+
+
+}
+
+
+
+
+
+
+
 
 function toggleAreaViaChecked(isChecked, areaElm, styleToChange, styleValueIfChecked, styleValueIfUnChecked) {
 	areaElm.style[styleToChange] = isChecked ? styleValueIfChecked : styleValueIfUnChecked;
@@ -57,13 +171,20 @@ function toggleAreaViaChecked(isChecked, areaElm, styleToChange, styleValueIfChe
 
 
 
+
 function wsapdSave() {
 	//alert('save it yo');
 
 
 
 	// This is the variable we are passing via AJAX
-	var fruit = 'Banana';
+	let fruit = 'Banana';
+
+	
+	//var ajx = new XMLHttpRequest();
+	let ajax = new XMLHttpRequest();
+
+
 
 	// This does the ajax request (The Call).
 	$.ajax({
