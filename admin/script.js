@@ -55,7 +55,7 @@ if (typeof runningAjaxCalls === 'undefined') {
 
 		let eReadyState = e.readyState;
 		let thisReadyState = this.readyState;
-		
+
 		
 		if (runningAjaxCalls[callID].readyState == 4) {
 				
@@ -133,19 +133,27 @@ if (typeof runningAjaxCalls === 'undefined') {
 
 		
 		// Prepare all parameters, and prevent cached response
-		let params = 'r=' + FunctionID;
-		if (Parameters) params += '&' + Parameters;
+		let params = 'action=' + serverFunctionName;
+		if (parameters) params += '&' + parameters;
 		
 
-		// Send proper header information
-		runningAjaxCalls[callID].open('POST', '/_a', true);
+		// Setup ajax header
+		runningAjaxCalls[callID].open('POST', ajaxurl, true);
 		runningAjaxCalls[callID].setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
 
 		// Execute return function when ready
 		runningAjaxCalls[callID].onreadystatechange = gavaAjaxCallOnReadyStateChange;
 		
 		
 
+		
+		// Submit the AJAX request
+		runningAjaxCalls[callID].send(params + '&u=' + Math.random());
+		
+		
+		// Return unique call ID
+		return callID;
 	}
 
 
@@ -185,9 +193,10 @@ function wsapdSave() {
 	let ajax = new XMLHttpRequest();
 
 
+	gavaAjax(serverFunctionName, parameters, returnFunction, cancelID)
 
 	// This does the ajax request (The Call).
-	$.ajax({
+	/*$.ajax({
 		url: ajaxurl, // admin-ajax.php
 		data: {
 			'action':'example_ajax_request', // This is our PHP function below
@@ -201,7 +210,7 @@ function wsapdSave() {
 			window.alert(errorThrown);
 		}
 	});
-
+*/
 
 }
 
