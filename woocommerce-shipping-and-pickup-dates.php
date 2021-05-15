@@ -80,6 +80,9 @@ if (!class_exists('WSAPD_Plugin')) {
 			$jsVersion = date('Ymd-Gis', filemtime($jsFilePath));
 	
 			wp_enqueue_style('wsapd_css', $cssURL, array(), $cssVersion);
+
+			wp_enqueue_script('jquery');
+
 			wp_enqueue_script('wsapd_js', $jsURL, array(), $jsVersion);
 
 			/*wp_localize_script('wsapd_js', 'wsapd_js_vars', array(

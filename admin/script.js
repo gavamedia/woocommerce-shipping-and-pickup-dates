@@ -190,13 +190,11 @@ function wsapdSave() {
 
 	
 	//var ajx = new XMLHttpRequest();
-	let ajax = new XMLHttpRequest();
-
-
-	gavaAjax(serverFunctionName, parameters, returnFunction, cancelID);
+	//let ajax = new XMLHttpRequest();
+	//gavaAjax('example_ajax_request', parameters, returnFunction, cancelID);
 
 	// This does the ajax request (The Call).
-	/*$.ajax({
+	$.ajax({
 		url: ajaxurl, // admin-ajax.php
 		data: {
 			'action':'example_ajax_request', // This is our PHP function below
@@ -210,7 +208,7 @@ function wsapdSave() {
 			window.alert(errorThrown);
 		}
 	});
-*/
+
 
 }
 
