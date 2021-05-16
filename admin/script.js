@@ -216,8 +216,20 @@ function wsapdSave() {
 
 
 
-function wsapd_STARTUP($) {
-	//alert('loaded!');
+
+
+// Let's use jQuery, people
+let $ = null;
+
+
+jQuery(document).ready(function($jQuery) {
+	$ = $jQuery;
+
+	$("#datepicker").datepicker();
+
+
+
+	
 
 
 	let enableShippingDatesElm = GavaGet('wsapd-enable-shipping-dates');
@@ -241,31 +253,6 @@ function wsapd_STARTUP($) {
 
 
 	GavaGet('wsapd-save-button').AddEvent('onclick', wsapdSave);
-
-}
-
-
-
-let $ = null;
-
-
-
-jQuery(document).ready(function($jQuery) {
-	$ = $jQuery;
 	
-	wsapd_STARTUP();
-	//$("#datepicker").datepicker();
 });
 
-
-/*
-
-if (document.addEventListener) document.addEventListener('DOMContentLoaded', function() {
-	setTimeout(wsapd_STARTUP, 1);
-});
-else if (document.attachEvent) document.attachEvent('onreadystatechange', function(){
-	if (document.readyState === 'complete') {
-		setTimeout(wsapd_STARTUP, 1);
-		document.detachEvent('onreadystatechange', arguments.callee);
-	}
-});*/
