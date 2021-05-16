@@ -67,6 +67,10 @@
 .wsapd-icon-save::before{
 	content: "\e01d";
 }
+.wsapd-icon-add::before{
+	content: "\e007";
+}
+
 
 
 
