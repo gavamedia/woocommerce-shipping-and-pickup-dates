@@ -52,7 +52,7 @@ if (!class_exists('WSAPD_Settings')) {
 		function saveSettings() {
 			if (isset($_REQUEST)) {
 
-				saveOption('enable-shipping-dates', $_REQUEST['enable-shipping-dates'] === 'true');
+				WSAPD_Settings::saveOption('enable-shipping-dates', $_REQUEST['enable-shipping-dates'] === 'true');
 
 
 				echo 'saved';        
@@ -68,7 +68,7 @@ if (!class_exists('WSAPD_Settings')) {
 
 			foreach ($settings as $settingName=>$value) {
 
-				$settings[$settingName] = getOption($settingName);
+				$settings[$settingName] = WSAPD_Settings::getOption($settingName);
 
 			}
 
