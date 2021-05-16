@@ -28,24 +28,42 @@ if (!class_exists('WSAPD_Settings')) {
 
 
 
+		function getOption($optionName) {
+			$optionName = ClassName::class . '_' . $optionName;
+
+			return get_option($optionName);
+		}
+
+
+		public $enable_shipping_dates = getOption('enable-shipping-dates');
+
+
+
+		function saveOption($optionName, $optionValue) {
+			$optionName = ClassName::class . '_' . $optionName;
+
+			if (get_option($optionName) === false && update_option($optionName, false) === false)
+				add_option($optionName, $optionValue);
+			else
+				update_option($optionName, $optionValue);
+		}
+
+
 		function saveSettings() {
 			if (isset($_REQUEST)) {
 
-				$enableShippingDates = $_REQUEST['enable-shipping-dates'] === 'true';
+				saveOption('enable-shipping-dates', $_REQUEST['enable-shipping-dates'] === 'true');
 
 
-				// This bit is going to process our fruit variable into an Apple
-				//if ( $enableShippingDates == 'Banana' ) {
-				$enableShippingDates = 'New saved value: ' . $enableShippingDates;
-				//}
-
-				// Now let's return the result to the Javascript function (The Callback) 
-				echo $enableShippingDates;        
+				echo 'saved';        
 			}
 
 			// Always die in functions echoing AJAX content
 			die();
 		}
+
+
+
 
 
 

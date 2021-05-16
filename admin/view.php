@@ -27,10 +27,6 @@ $html_template = file_get_contents(plugin_dir_path( __FILE__ ) . '/index.html');
 
 
 
-// get an option
-$wsapd_enable_shipping_dates = get_option('wsapd_enable_shipping_dates');
-
-
 
 if ($wsapd_enable_shipping_dates) $html_template = str_replace('{{wsapd_enable_shipping_dates}}', ' checked="true"', $html_template);
 
