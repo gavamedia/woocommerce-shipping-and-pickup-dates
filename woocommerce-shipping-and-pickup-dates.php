@@ -134,7 +134,7 @@ if (!class_exists('WSAPD_Main')) {
 
 		public static function init() {
 			require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'settings.php';
-			add_action( 'wp_ajax_wsapd_save_settings', 'WSAPD_ajaxSaveAllSettings' );
+			add_action('wp_ajax_WSAPD_ajaxSaveAllSettings', 'WSAPD_ajaxSaveAllSettings');
 
 			// Admin only
 			if (is_admin()) {
