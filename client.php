@@ -29,8 +29,8 @@ function custom_override_checkout_fields($fields) {
 	$fields['order']['pickup_date']['type'] = 'select';
 	$fields['order']['pickup_date']['required'] = true;
 	$fields['order']['pickup_date']['class'] = array('my-field-class form-row-wide');
-	$fields['order']['pickup_date']['label'] = __('Pickup date');
-	$fields['order']['pickup_date']['options'] = array( '' => 'Select...', '2021' => 'Sometime in 2021', '2022' => 'Sometime in 2022' );
+	$fields['order']['pickup_date']['label'] = __('Pickup date!!!!');
+	$fields['order']['pickup_date']['options'] = array( '' => 'Select...', '2021' => 'Irgendwann in 2021', '2022' => 'Irgandwann in 2022' );
 	
 
 
