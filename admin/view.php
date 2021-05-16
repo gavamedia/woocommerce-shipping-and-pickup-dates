@@ -49,4 +49,4 @@ $html_template = str_replace('{{NOTICES}}', $noticeHTML, $html_template);
 
 echo $html_template;
 
-print_r($wsapdSettings);
+echo "da settings: " . print_r($wsapdSettings, true);
