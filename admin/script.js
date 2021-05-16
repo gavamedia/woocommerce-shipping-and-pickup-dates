@@ -78,7 +78,8 @@ function wsapdSave() {
 		data: {
 			'action': 'WSAPD_ajaxSaveAllSettings', // This is our PHP function below
 
-			'enable-shipping-dates': GavaGet('wsapd-enable-shipping-dates').checked
+			'enable-shipping-dates': GavaGet('wsapd-enable-shipping-dates').checked,
+			'enable-pickup-dates': GavaGet('wsapd-enable-pickup-dates').checked
 		},
 		success: function(data) {
 			// This outputs the result of the ajax request (The Callback)

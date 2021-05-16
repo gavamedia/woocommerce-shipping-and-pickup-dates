@@ -29,8 +29,8 @@ $html_template = file_get_contents(plugin_dir_path( __FILE__ ) . '/index.html');
 
 
 
-if ($GLOBALS['WSAPD_Settings']['enable-shipping-dates']) $html_template = str_replace('{{wsapd_enable_shipping_dates}}', ' checked="true"', $html_template);
-
+if ($GLOBALS['WSAPD_Settings']['enable-shipping-dates']) $html_template = str_replace('{{wsapd-enable-shipping-dates}}', ' checked="true"', $html_template);
+if ($GLOBALS['WSAPD_Settings']['enable-pickup-dates']) $html_template = str_replace('{{wsapd-enable-pickup-dates}}', ' checked="true"', $html_template);
 
 
 
