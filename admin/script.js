@@ -43,124 +43,6 @@ if (!Element.prototype.RemoveEvent)
 
 
 
-// Easily handle AJAX
-if (typeof runningAjaxCalls === 'undefined') {
-
-	let runningAjaxCalls = [];
-
-
-
-
-	function gavaAjaxCallOnReadyStateChange(e) {
-
-		let eReadyState = e.readyState;
-		let thisReadyState = this.readyState;
-
-		
-		if (runningAjaxCalls[callID].readyState == 4) {
-				
-			// Include unique ajax call ID back to return return functions
-			runningAjaxCalls[callID]['CallID'] = callID;
-
-			
-			if (runningAjaxCalls[callID].status == 401) {
-				if (typeof window.LoginRequired == 'function') {
-					CallAfterLoginFunctionID = FunctionID;
-					CallAfterLoginParameters = Parameters;
-					CallAfterLoginReturnFunction = ReturnFunction;
-					LoginRequired();
-				}
-				else ShowDialog('<h2>Login Required</h2><br>Please login to continue.', 'loginRequiredResponseBackup', 330, 145, false);
-			}
-			else if (runningAjaxCalls[callID].status == 403) {
-				ShowDialog('<h2>Access Denied</h2><br>You do not have permission to perform this action.', null, 330, 145, false);
-				setTimeout(function(){if (typeof ReturnFunction == 'function') ReturnFunction(runningAjaxCalls[callID]);}, 400);
-			}
-			else {
-				if (typeof ReturnFunction == 'function') ReturnFunction(runningAjaxCalls[callID]);
-			}
-			
-			
-			// DONE. Remove from running list
-			delete runningAjaxCalls[callID];
-		}
-	}
-
-
-
-	function gavaMaybeAbortThisOrOtherAjaxCall(callID, cancelID) {
-		let abortThis = false;
-
-		// Already running
-		let runningAjaxObj = null;
-		try { runningAjaxObj = runningAjaxCalls[callID]; } catch(x){}
-
-		if (runningAjaxObj) {
-			// Cancel others, but run this
-			if (cancelID) runningAjaxCalls[callID].abort();
-
-			// Or cancel this
-			else abortThis = true;
-		}
-
-		return abortThis;
-	}
-
-
-
-
-
-
-	/**
-	 * Calls an app's server-side function
-	 * If cancelID is set, it will cancel other pending calls with the same id,
-	 * even though parameters may be different
-	 */
-	function gavaAjax(serverFunctionName, parameters, returnFunction, cancelID) {
-
-		let callID = null;
-		if (cancelID) callID = encodeURIComponent(cancelID);
-		else callID = encodeURIComponent(serverFunctionName + parameters + returnFunction);
-		
-
-		// Already running. Cancel others and run this, or cancel this
-		if (gavaMaybeAbortThisOrOtherAjaxCall(callID, cancelID)) return false;
-
-
-		// Create the ajax obj
-		runningAjaxCalls[callID] = new XMLHttpRequest();
-
-
-		
-		// Prepare all parameters, and prevent cached response
-		let params = 'action=' + serverFunctionName;
-		if (parameters) params += '&' + parameters;
-		
-
-		// Setup ajax header
-		runningAjaxCalls[callID].open('POST', ajaxurl, true);
-		runningAjaxCalls[callID].setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-
-		// Execute return function when ready
-		runningAjaxCalls[callID].onreadystatechange = gavaAjaxCallOnReadyStateChange;
-		
-		
-
-		
-		// Submit the AJAX request
-		runningAjaxCalls[callID].send(params + '&u=' + Math.random());
-		
-		
-		// Return unique call ID
-		return callID;
-	}
-
-
-}
-
-
-
 
 
 
@@ -198,9 +80,9 @@ function wsapdSave() {
 	$.ajax({
 		url: ajaxurl, // admin-ajax.php
 		data: {
-			'action':'example_ajax_request', // This is our PHP function below
+			'action': 'example_ajax_request', // This is our PHP function below
 
-			'enable-shipping-dates' : $('#enable-shipping-dates').checked
+			'enable-shipping-dates': GavaGet('enable-shipping-dates').checked
 		},
 		success: function(data) {
 			// This outputs the result of the ajax request (The Callback)
