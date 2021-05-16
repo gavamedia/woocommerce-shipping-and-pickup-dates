@@ -62,14 +62,14 @@ function toggleAreaViaChecked(isChecked, areaElm, styleToChange, styleValueIfChe
 
 
 
+let wsapdIsSaving = false;
+
 function wsapdSave() {
-	//alert('save it yo');
+	if (wsapdIsSaving) return false;
 
+	wsapdIsSaving = true;
 
-	//$('#wsapd-enable-shipping-dates')
-
-
-	
+	$('#wsapd-save-button').css('opacity', '.5');
 
 	
 	//var ajx = new XMLHttpRequest();
@@ -87,9 +87,13 @@ function wsapdSave() {
 		success: function(data) {
 			// This outputs the result of the ajax request (The Callback)
 			window.alert(data);
+			wsapdIsSaving = false;
+			$('#wsapd-save-button').css('opacity', '1');
 		},  
 		error: function(errorThrown) {
 			window.alert(errorThrown);
+			wsapdIsSaving = false;
+			$('#wsapd-save-button').css('opacity', '1');
 		}
 	});
 
