@@ -110,7 +110,7 @@ let $ = null;
 jQuery(document).ready(function($jQuery) {
 	$ = $jQuery;
 
-	$('#datepicker').datepicker();
+	//$('#datepicker').datepicker();
 
 
 
