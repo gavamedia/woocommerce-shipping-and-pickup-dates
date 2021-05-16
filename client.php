@@ -29,13 +29,15 @@ function custom_override_checkout_fields($fields) {
 	$fields['order']['pickup_date']['type'] = 'select';
 	$fields['order']['pickup_date']['required'] = true;
 	$fields['order']['pickup_date']['class'] = array('my-field-class form-row-wide');
-	$fields['order']['pickup_date']['label'] = __('Pickup date!!!!');
-	$fields['order']['pickup_date']['options'] = array( '' => 'Select...', '2021' => 'Irgendwann in 2021', '2022' => 'Irgandwann in 2022' );
+	$fields['order']['pickup_date']['label'] = __('Pickup date');
+	$fields['order']['pickup_date']['options'] = array( '' => 'Select...', '2021' => 'Irgendwann in 2021', '2022' => 'Irgendwann in 2022' );
 	
-
-
     return $fields;
 }
-add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+
+// Shipping or pickup dates required
+if ($GLOBALS['WSAPD_Settings']['enable-shipping-dates'] || $GLOBALS['WSAPD_Settings']['enable-pickup-dates'])
+	add_filter('woocommerce_checkout_fields' , 'custom_override_checkout_fields');
+
 
 
