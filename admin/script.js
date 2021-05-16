@@ -199,8 +199,8 @@ function wsapdSave() {
 		url: ajaxurl, // admin-ajax.php
 		data: {
 			'action':'example_ajax_request', // This is our PHP function below
-			
-			'enable-shipping-dates' : $(#enable-shipping-dates).checked
+
+			'enable-shipping-dates' : $('#enable-shipping-dates').checked
 		},
 		success: function(data) {
 			// This outputs the result of the ajax request (The Callback)
