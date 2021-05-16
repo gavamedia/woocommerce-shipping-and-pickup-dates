@@ -142,6 +142,9 @@ if (!class_exists('WSAPD_Main')) {
 				add_action('admin_notices', 'WSAPD_Main::admin_notice__error' );
 				add_action('admin_enqueue_scripts', 'WSAPD_Main::enqueueContent');
 			}
+
+			// Customers only
+			else require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'client.php';
 		}
 
 
