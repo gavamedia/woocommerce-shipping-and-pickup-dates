@@ -20,6 +20,10 @@
  */
 
 
+// Let's use jQuery like normal goddamn people
+let $ = null;
+
+
 
 // Easily get elements
 if (typeof GavaGet !== 'function') {
@@ -79,7 +83,10 @@ function wsapdSave() {
 			'action': 'WSAPD_ajaxSaveAllSettings', // This is our PHP function below
 
 			'enable-shipping-dates': GavaGet('wsapd-enable-shipping-dates').checked,
-			'enable-pickup-dates': GavaGet('wsapd-enable-pickup-dates').checked
+			'enable-pickup-dates': GavaGet('wsapd-enable-pickup-dates').checked,
+
+			'require-shipping-date': GavaGet('wsapd-require-shipping-date').checked,
+			'require-pickup-date': GavaGet('wsapd-require-pickup-date').checked
 		},
 		success: function(data) {
 			// This outputs the result of the ajax request (The Callback)
@@ -103,11 +110,10 @@ function wsapdSave() {
 
 
 
-// Let's use jQuery, people
-let $ = null;
 
 
 jQuery(document).ready(function($jQuery) {
+	// Let's use jQuery like normal goddamn people
 	$ = $jQuery;
 
 	//$('#datepicker').datepicker();
