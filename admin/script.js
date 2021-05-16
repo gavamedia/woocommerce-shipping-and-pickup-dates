@@ -80,7 +80,7 @@ function wsapdSave() {
 	$.ajax({
 		url: ajaxurl, // admin-ajax.php
 		data: {
-			'action': 'wp_ajax_wsapd_save_settings', // This is our PHP function below
+			'action': 'wsapd_save_settings', // This is our PHP function below
 
 			'enable-shipping-dates': GavaGet('wsapd-enable-shipping-dates').checked
 		},
