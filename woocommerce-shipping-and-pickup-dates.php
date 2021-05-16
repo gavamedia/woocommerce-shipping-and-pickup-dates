@@ -99,32 +99,10 @@ if (!class_exists('WSAPD_Plugin')) {
 				)
 			);*/
 
-			
-		
-			require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'settings.php';
 		}
 
 		
 
-		function example_ajax_request() {
-
-			// The $_REQUEST contains all the data sent via AJAX from the Javascript call
-			if ( isset($_REQUEST) ) {
-
-					$fruit = $_REQUEST['fruit'];
-
-					// This bit is going to process our fruit variable into an Apple
-					if ( $fruit == 'Banana' ) {
-							$fruit = 'Apple';
-					}
-
-					// Now let's return the result to the Javascript function (The Callback) 
-					echo $fruit;        
-			}
-
-			// Always die in functions echoing AJAX content
-			die();
-		}
 
 
 
@@ -155,8 +133,12 @@ if (!class_exists('WSAPD_Plugin')) {
 		
 
 		public static function init() {
+			require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'ajax.php';
+			
 			// Admin only
 			if (is_admin()) {
+				require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'settings.php';
+
 				add_action('admin_menu', 'WSAPD_Plugin::addToAdminMenu');
 				add_action('admin_notices', 'WSAPD_Plugin::admin_notice__error' );
 				add_action('admin_enqueue_scripts', 'WSAPD_Plugin::enqueueContent');
@@ -166,6 +148,7 @@ if (!class_exists('WSAPD_Plugin')) {
 
 			}
 		}
+
 
 	}
 }
