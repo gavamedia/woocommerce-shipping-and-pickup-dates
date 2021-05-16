@@ -21,10 +21,7 @@
 
 
 
-// Easily get elements
-if (typeof GavaGet !== 'function') {
-	function GavaGet(el) {if (el) {if (typeof el === 'string' || !isNaN(el)) {if (el == 'document.body') return document.body;return document.getElementById(el);}else {if (el.id) {if (document.getElementById(el.id)) return document.getElementById(el.id);else if (typeof el !== null) return el;}else return el;}}return false;}
-}
+
 
 // Easily add events to elements
 if (!Element.prototype.AddEvent)
@@ -181,25 +178,22 @@ function toggleAreaViaChecked(isChecked, areaElm, styleToChange, styleValueIfChe
 
 
 function wsapdSave() {
-	//alert('save it yo');
 
 
+	//$('#wsapd-enable-shipping-dates')
 
-	// This is the variable we are passing via AJAX
-	let fruit = 'Banana';
+
+	let newSettings = {
+		'action': 'example_ajax_request',
+
+		'enable-shipping-dates': $('#wsapd-enable-shipping-dates').checked
+	};
 
 	
-	//var ajx = new XMLHttpRequest();
-	//let ajax = new XMLHttpRequest();
-	//gavaAjax('example_ajax_request', parameters, returnFunction, cancelID);
-
 	// This does the ajax request (The Call).
 	$.ajax({
 		url: ajaxurl, // admin-ajax.php
-		data: {
-			'action':'example_ajax_request', // This is our PHP function below
-			'fruit' : fruit // This is the variable we are sending via AJAX
-		},
+		data: newSettings,
 		success: function(data) {
 			// This outputs the result of the ajax request (The Callback)
 			window.alert(data);
@@ -225,21 +219,21 @@ let $ = null;
 jQuery(document).ready(function($jQuery) {
 	$ = $jQuery;
 
-	$("#datepicker").datepicker();
+	$('#datepicker').datepicker();
 
 
 
 	
 
 
-	let enableShippingDatesElm = GavaGet('wsapd-enable-shipping-dates');
+	let enableShippingDatesElm = $('#wsapd-enable-shipping-dates');
 	if (enableShippingDatesElm) enableShippingDatesElm.AddEvent('onchange', function() {
-		toggleAreaViaChecked(enableShippingDatesElm.checked, GavaGet('wsapd-shipping-dates-area'), 'opacity', '1', '.5');
+		toggleAreaViaChecked(enableShippingDatesElm.checked, $('#wsapd-shipping-dates-area'), 'opacity', '1', '.5');
 	});
 
-	let enablePickupDatesElm = GavaGet('wsapd-enable-pickup-dates');
+	let enablePickupDatesElm = $('#wsapd-enable-pickup-dates');
 	if (enablePickupDatesElm) enablePickupDatesElm.AddEvent('onchange', function() {
-		toggleAreaViaChecked(enablePickupDatesElm.checked, GavaGet('wsapd-pickup-dates-area'), 'opacity', '1', '.5');
+		toggleAreaViaChecked(enablePickupDatesElm.checked, $('#wsapd-pickup-dates-area'), 'opacity', '1', '.5');
 	});
 
 
@@ -248,11 +242,11 @@ jQuery(document).ready(function($jQuery) {
 
 
 	// Apply settings
-	toggleAreaViaChecked(enableShippingDatesElm.checked, GavaGet('wsapd-shipping-dates-area'), 'opacity', '1', '.5');
-	toggleAreaViaChecked(enablePickupDatesElm.checked, GavaGet('wsapd-pickup-dates-area'), 'opacity', '1', '.5');
+	toggleAreaViaChecked(enableShippingDatesElm.checked, $('#wsapd-shipping-dates-area'), 'opacity', '1', '.5');
+	toggleAreaViaChecked(enablePickupDatesElm.checked, $('#wsapd-pickup-dates-area'), 'opacity', '1', '.5');
 
 
-	GavaGet('wsapd-save-button').AddEvent('onclick', wsapdSave);
+	$('#wsapd-save-button').AddEvent('onclick', wsapdSave);
 	
 });
 

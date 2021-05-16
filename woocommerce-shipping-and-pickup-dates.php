@@ -31,10 +31,6 @@ defined('ABSPATH') or die('No script kiddies, please!');
 //define('WP_DEBUG', true);
 
 
-
-
-
-
 if (!function_exists('str_starts_with')) {
 	function str_starts_with($haystack, $needle) {
 		return (string)$needle !== '' && strncmp($haystack, $needle, strlen($needle)) === 0;
@@ -52,8 +48,12 @@ if (!function_exists('str_contains')) {
 }
 
 
-if (!class_exists('WSAPD_Plugin')) {
-	class WSAPD_Plugin {
+
+
+
+
+if (!class_exists('WSAPD_Main')) {
+	class WSAPD_Main {
 
 
 		const CSS_FILE_PATH = 'admin/style.css';
@@ -136,17 +136,18 @@ if (!class_exists('WSAPD_Plugin')) {
 			require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'ajax.php';
 			add_action( 'wp_ajax_example_ajax_request', 'WSAPD_Ajax::example_ajax_request' );
 
+			
 			// Admin only
 			if (is_admin()) {
 				require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'settings.php';
 
-				add_action('admin_menu', 'WSAPD_Plugin::addToAdminMenu');
-				add_action('admin_notices', 'WSAPD_Plugin::admin_notice__error' );
-				add_action('admin_enqueue_scripts', 'WSAPD_Plugin::enqueueContent');
+				add_action('admin_menu', 'WSAPD_Main::addToAdminMenu');
+				add_action('admin_notices', 'WSAPD_Main::admin_notice__error' );
+				add_action('admin_enqueue_scripts', 'WSAPD_Main::enqueueContent');
 			}
 		}
 
 
 	}
 }
-WSAPD_Plugin::init();
+WSAPD_Main::init();
