@@ -134,7 +134,7 @@ if (!class_exists('WSAPD_Plugin')) {
 
 		public static function init() {
 			require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'ajax.php';
-			add_action( 'wp_ajax_example_ajax_request', 'example_ajax_request' );
+			add_action( 'wp_ajax_example_ajax_request', 'WSAPD_Ajax::example_ajax_request' );
 
 			// Admin only
 			if (is_admin()) {

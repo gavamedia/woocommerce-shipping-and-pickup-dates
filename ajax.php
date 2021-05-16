@@ -1,8 +1,8 @@
 <?php
 
 
-if (!class_exists('WSAPD_Plugin')) {
-	class WSAPD_Plugin {
+if (!class_exists('WSAPD_Ajax')) {
+	class WSAPD_Ajax {
 
 		function example_ajax_request() {
 
