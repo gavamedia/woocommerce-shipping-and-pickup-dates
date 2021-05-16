@@ -25,7 +25,10 @@
 
 
  
-$WSAPD_Settings = ['enable-shipping-dates'];
+$WSAPD_Settings = [
+	'enable-shipping-dates' => ''
+];
+
 
 
 
@@ -63,10 +66,10 @@ function WSAPD_ajaxSaveAllSettings() {
 
 
 
-
+error_log("\$WSAPD_Settings used to be = " . print_r($WSAPD_Settings, true));
 
 // Load all settings
-foreach ($WSAPD_Settings as $settingName=>$value) {
+foreach ($WSAPD_Settings as $settingName => $value) {
 	error_log("Call: WSAPD_getOption(`$settingName`)");
 	$WSAPD_Settings[$settingName] = WSAPD_getOption($settingName);
 }
