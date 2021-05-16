@@ -31,7 +31,7 @@ if (!class_exists('WSAPD_Settings')) {
 
 
 		function getOption($optionName) {
-			$optionName = ClassName::class . '_' . $optionName;
+			$optionName = get_class($this) . '-' . $optionName;
 
 			return get_option($optionName);
 		}
@@ -40,7 +40,7 @@ if (!class_exists('WSAPD_Settings')) {
 
 
 		function saveOption($optionName, $optionValue) {
-			$optionName = ClassName::class . '_' . $optionName;
+			$optionName = get_class($this) . '-' . $optionName;
 
 			if (get_option($optionName) === false && update_option($optionName, false) === false)
 				add_option($optionName, $optionValue);
