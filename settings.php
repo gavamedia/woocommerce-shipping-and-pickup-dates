@@ -69,10 +69,10 @@ function WSAPD_ajaxSaveAllSettings() {
 
 // Load all settings
 foreach ($GLOBALS['WSAPD_Settings'] as $settingName => $value) {
-	error_log("Call: WSAPD_getOption(`$settingName`)");
+	//error_log("Call: WSAPD_getOption(`$settingName`)");
 	$GLOBALS['WSAPD_Settings'][$settingName] = WSAPD_getOption($settingName);
 }
 
-error_log("\$GLOBALS['WSAPD_Settings'] = " . print_r($GLOBALS['WSAPD_Settings'], true));
+//error_log("\$GLOBALS['WSAPD_Settings'] = " . print_r($GLOBALS['WSAPD_Settings'], true));
 
 
