@@ -82,7 +82,7 @@ function wsapdSave() {
 		data: {
 			'action': 'example_ajax_request', // This is our PHP function below
 
-			'enable-shipping-dates': GavaGet('enable-shipping-dates').checked
+			'enable-shipping-dates': GavaGet('wsapd-enable-shipping-dates').checked
 		},
 		success: function(data) {
 			// This outputs the result of the ajax request (The Callback)
