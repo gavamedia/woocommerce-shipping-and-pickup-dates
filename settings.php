@@ -76,4 +76,6 @@ if (!class_exists('WSAPD_Settings')) {
 
 	}
 }
-WSAPD_Settings::init();
+
+$WSAPD_settings = new WSAPD_Settings;
+$WSAPD_settings::init();
