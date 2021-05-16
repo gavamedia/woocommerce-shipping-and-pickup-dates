@@ -56,6 +56,7 @@ function WSAPD_ajaxSaveAllSettings() {
 	if (isset($_REQUEST)) {
 
 		WSAPD_setOption('enable-shipping-dates', $_REQUEST['enable-shipping-dates'] === 'true');
+		WSAPD_setOption('enable-pickup-dates', $_REQUEST['enable-pickup-dates'] === 'true');
 
 
 		echo 'saved';        
