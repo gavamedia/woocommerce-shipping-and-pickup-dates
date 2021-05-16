@@ -26,7 +26,7 @@
 
  
 $GLOBALS['WSAPD_Settings'] = [
-	'enable-shipping-dates' => ''
+	'enable-shipping-dates' => '',
 	'enable-pickup-dates' => ''
 ];
 
