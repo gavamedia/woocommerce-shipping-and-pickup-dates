@@ -27,6 +27,8 @@ if (!class_exists('WSAPD_Settings')) {
 	class WSAPD_Settings {
 
 
+		public $settings = ['enable-shipping-dates'];
+
 
 		function getOption($optionName) {
 			$optionName = ClassName::class . '_' . $optionName;
@@ -34,8 +36,6 @@ if (!class_exists('WSAPD_Settings')) {
 			return get_option($optionName);
 		}
 
-
-		public $enable_shipping_dates = getOption('enable-shipping-dates');
 
 
 
@@ -64,9 +64,16 @@ if (!class_exists('WSAPD_Settings')) {
 
 
 
+		public static function init() {
 
+			foreach ($settings as $settingName=>$value) {
 
+				$settings[$settingName] = getOption($settingName);
 
+			}
+
+		}
 
 	}
 }
+WSAPD_Settings::init();
