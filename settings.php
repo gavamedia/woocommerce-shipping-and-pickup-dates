@@ -58,8 +58,8 @@ function WSAPD_ajaxSaveAllSettings() {
 		WSAPD_setOption('enable-shipping-dates', $_REQUEST['enable-shipping-dates'] === 'true');
 		WSAPD_setOption('enable-pickup-dates', $_REQUEST['enable-pickup-dates'] === 'true');
 
-		WSAPD_setOption('equire-shipping-date', $_REQUEST['equire-shipping-date'] === 'true');
-		WSAPD_setOption('equire-shipping-date', $_REQUEST['equire-shipping-date'] === 'true');
+		WSAPD_setOption('require-shipping-date', $_REQUEST['require-shipping-date'] === 'true');
+		WSAPD_setOption('require-shipping-date', $_REQUEST['require-shipping-date'] === 'true');
 
 
 
