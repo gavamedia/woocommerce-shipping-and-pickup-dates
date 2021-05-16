@@ -42,7 +42,7 @@ if ($GLOBALS['WSAPD_Settings']['enable-pickup-dates']) $html_template = str_repl
 // Add notices
 $noticeHTML = '';
 
-if (!$GLOBALS['WSAPD_Settings']['enable-shipping-dates'] && $GLOBALS['WSAPD_Settings']['enable-pickup-dates'])
+if (!$GLOBALS['WSAPD_Settings']['enable-shipping-dates'] && !$GLOBALS['WSAPD_Settings']['enable-pickup-dates'])
 	$noticeText = '<span class="wsapd-icon wsapd-icon-warn"></span> Please enable shipping or pickup dates below.';
 
 if ($noticeText) {
