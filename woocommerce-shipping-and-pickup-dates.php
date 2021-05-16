@@ -134,7 +134,8 @@ if (!class_exists('WSAPD_Plugin')) {
 
 		public static function init() {
 			require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'ajax.php';
-			
+			add_action( 'wp_ajax_example_ajax_request', 'WSAPD_Plugin::example_ajax_request' );
+
 			// Admin only
 			if (is_admin()) {
 				require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'settings.php';
@@ -142,10 +143,6 @@ if (!class_exists('WSAPD_Plugin')) {
 				add_action('admin_menu', 'WSAPD_Plugin::addToAdminMenu');
 				add_action('admin_notices', 'WSAPD_Plugin::admin_notice__error' );
 				add_action('admin_enqueue_scripts', 'WSAPD_Plugin::enqueueContent');
-
-				// This bit is a special action hook that works with the WordPress AJAX functionality. 
-				add_action( 'wp_ajax_example_ajax_request', 'WSAPD_Plugin::example_ajax_request' );
-
 			}
 		}
 
