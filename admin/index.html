@@ -28,15 +28,20 @@
 				<input id="wsapd-enable-shipping-dates" name="wsapd-enable-shipping-dates" type="checkbox" {{wsapd-enable-shipping-dates}}>
 				Show <b>shipping date</b> options to customers
 			</label>
-
 			<div id="wsapd-shipping-dates-area" class="wsapd-area">
+
+				<label for="wsapd-require-shipping-dates">
+					<input id="wsapd-require-shipping-dates" name="wsapd-require-shipping-dates" type="checkbox">
+					A ship date is required to checkout
+				</label>
+
 				Sample: <input type="text">
 				<div id="datepicker"></div>
 				<hr>
-				Show available dates as a:
+				Show available dates as:
 				<select>
-					<option disabled>calendar</option>
-					<option selected>dropdown list</option>
+					<option disabled>a calendar</option>
+					<option selected>a dropdown list</option>
 				</select>
 
 				<hr>
