@@ -86,7 +86,7 @@ if (!class_exists('WSAPD_Plugin')) {
 			// Load the datepicker script (pre-registered in WordPress).
 			wp_enqueue_script('jquery-ui-datepicker');
 
-			
+
 			// You need styling for the datepicker. For simplicity I've linked to the jQuery UI CSS on a CDN.
 			wp_register_style('jquery-ui', 'https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css');
 			wp_enqueue_style('jquery-ui');
@@ -108,22 +108,22 @@ if (!class_exists('WSAPD_Plugin')) {
 
 		function example_ajax_request() {
 
-				// The $_REQUEST contains all the data sent via AJAX from the Javascript call
-				if ( isset($_REQUEST) ) {
+			// The $_REQUEST contains all the data sent via AJAX from the Javascript call
+			if ( isset($_REQUEST) ) {
 
-						$fruit = $_REQUEST['fruit'];
+					$fruit = $_REQUEST['fruit'];
 
-						// This bit is going to process our fruit variable into an Apple
-						if ( $fruit == 'Banana' ) {
-								$fruit = 'Apple';
-						}
+					// This bit is going to process our fruit variable into an Apple
+					if ( $fruit == 'Banana' ) {
+							$fruit = 'Apple';
+					}
 
-						// Now let's return the result to the Javascript function (The Callback) 
-						echo $fruit;        
-				}
+					// Now let's return the result to the Javascript function (The Callback) 
+					echo $fruit;        
+			}
 
-				// Always die in functions echoing AJAX content
-				die();
+			// Always die in functions echoing AJAX content
+			die();
 		}
 
 
@@ -162,7 +162,7 @@ if (!class_exists('WSAPD_Plugin')) {
 				add_action('admin_enqueue_scripts', 'WSAPD_Plugin::enqueueContent');
 
 				// This bit is a special action hook that works with the WordPress AJAX functionality. 
-				add_action( 'wp_ajax_example_ajax_request', 'example_ajax_request' );
+				add_action( 'wp_ajax_example_ajax_request', 'WSAPD_Plugin::example_ajax_request' );
 
 			}
 		}
