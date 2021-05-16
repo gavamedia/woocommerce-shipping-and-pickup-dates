@@ -28,7 +28,7 @@ if (!class_exists('WSAPD_Settings')) {
 
 		const CLASS_NAME = 'WSAPD';
 
-		public $settings = ['enable-shipping-dates'];
+		private $settings = ['enable-shipping-dates'];
 
 
 		function getOption($optionName) {
@@ -50,8 +50,8 @@ if (!class_exists('WSAPD_Settings')) {
 
 
 
-		public static function GetSetting($settingName) {
-			return $settings[$settingName];
+		public function GetSetting($settingName) {
+			return $this->settings[$settingName];
 		}
 
 
@@ -72,9 +72,9 @@ if (!class_exists('WSAPD_Settings')) {
 
 		public static function init() {
 
-			foreach ($settings as $settingName=>$value) {
+			foreach ($this->settings as $settingName=>$value) {
 
-				$settings[$settingName] = WSAPD_Settings::getOption($settingName);
+				$this->settings[$settingName] = WSAPD_Settings::getOption($settingName);
 
 			}
 
