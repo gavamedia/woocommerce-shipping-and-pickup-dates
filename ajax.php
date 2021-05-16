@@ -5,16 +5,17 @@ if (!class_exists('WSAPD_Ajax')) {
 	class WSAPD_Ajax {
 
 
-		function example_ajax_request() {
+		function saveSettings() {
 
 			// The $_REQUEST contains all the data sent via AJAX from the Javascript call
 			if (isset($_REQUEST)) {
 
-				$enableShippingDates = $_REQUEST['enable-shipping-dates'];
+				$enableShippingDates = $_REQUEST['enable-shipping-dates'] === 'true';
+
 
 				// This bit is going to process our fruit variable into an Apple
 				//if ( $enableShippingDates == 'Banana' ) {
-					$enableShippingDates = 'Da value: ' . $enableShippingDates;
+					$enableShippingDates = 'Saved value: ' . $enableShippingDates;
 				//}
 
 				// Now let's return the result to the Javascript function (The Callback) 
