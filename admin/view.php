@@ -27,8 +27,9 @@ $html_template = file_get_contents(plugin_dir_path( __FILE__ ) . '/index.html');
 
 
 
-global $WSAPD_Settings;
-if ($WSAPD_Settings['enable_shipping_dates']) $html_template = str_replace('{{wsapd_enable_shipping_dates}}', ' checked="true"', $html_template);
+
+
+if ($GLOBALS['WSAPD_Settings']['enable_shipping_dates']) $html_template = str_replace('{{wsapd_enable_shipping_dates}}', ' checked="true"', $html_template);
 
 
 
@@ -49,4 +50,4 @@ $html_template = str_replace('{{NOTICES}}', $noticeHTML, $html_template);
 
 echo $html_template;
 
-echo "da settings: " . print_r($WSAPD_Settings, true);
+echo "da settings: " . print_r($GLOBALS['WSAPD_Settings'], true);
