@@ -95,6 +95,9 @@
 .wsapd-area section{
   margin:0 2em;
 }
+.wsapd-area .sub-section{
+  margin:1em 2em;
+}
 
 .wsapd-body .tab-wrap hr{
   margin:3em 0;
