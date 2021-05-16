@@ -26,12 +26,13 @@
 if (!class_exists('WSAPD_Settings')) {
 	class WSAPD_Settings {
 
+		const CLASS_NAME = 'WSAPD';
 
 		public $settings = ['enable-shipping-dates'];
 
 
 		function getOption($optionName) {
-			$optionName = get_class($this) . '-' . $optionName;
+			$optionName = CLASS_NAME . '-' . $optionName;
 
 			return get_option($optionName);
 		}
@@ -40,7 +41,7 @@ if (!class_exists('WSAPD_Settings')) {
 
 
 		function saveOption($optionName, $optionValue) {
-			$optionName = get_class($this) . '-' . $optionName;
+			$optionName = CLASS_NAME . '-' . $optionName;
 
 			if (get_option($optionName) === false && update_option($optionName, false) === false)
 				add_option($optionName, $optionValue);
