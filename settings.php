@@ -23,67 +23,52 @@
  * xxxWC tested up to: 5.1.0
  */
 
-if (!class_exists('WSAPD_Settings')) {
-	class WSAPD_Settings {
 
-		const CLASS_NAME = 'WSAPD';
-
-		private $settings = ['enable-shipping-dates'];
-
-
-		function getOption($optionName) {
-			$optionName = self::CLASS_NAME . '-' . $optionName;
-
-			return get_option($optionName);
-		}
-
-
-		function setOption($optionName, $optionValue) {
-			$optionName = self::CLASS_NAME . '-' . $optionName;
-
-			if (get_option($optionName) === false && update_option($optionName, false) === false)
-				add_option($optionName, $optionValue);
-			else
-				update_option($optionName, $optionValue);
-		}
+ 
+$WSAPD_Settings = ['enable-shipping-dates'];
 
 
 
-
-		public function GetSetting($settingName) {
-			return $this->settings[$settingName];
-		}
-
-
-		function saveSettings() {
-			if (isset($_REQUEST)) {
-
-				WSAPD_Settings::setOption('enable-shipping-dates', $_REQUEST['enable-shipping-dates'] === 'true');
-
-
-				echo 'saved';        
-			}
-
-			// Always die in functions echoing AJAX content
-			die();
-		}
-
-
-		public function GetAllSettings() {
-			foreach ($this->settings as $settingName=>$value) {
-
-				$this->settings[$settingName] = WSAPD_Settings::getOption($settingName);
-
-			}
-
-			return $this->settings;
-		}
-
-
-	}
+function WSAPD_getOption($optionName) {
+	return get_option('WSAPD_' . $optionName);
 }
 
-$WSAPD_settings = new WSAPD_Settings();
-$wsapdSettings = $WSAPD_settings->GetAllSettings();
+
+function WSAPD_setOption($optionName, $optionValue) {
+	$optionName = 'WSAPD_' . $optionName;
+
+	if (get_option($optionName) === false && update_option($optionName, false) === false)
+		add_option($optionName, $optionValue);
+	else
+		update_option($optionName, $optionValue);
+}
+
+
+
+
+
+
+function WSAPD_ajaxSaveAllSettings() {
+	if (isset($_REQUEST)) {
+
+		WSAPD_setOption('enable-shipping-dates', $_REQUEST['enable-shipping-dates'] === 'true');
+
+
+		echo 'saved';        
+	}
+
+	// Always die in functions echoing AJAX content
+	die();
+}
+
+
+
+
+
+// Load all settings
+foreach ($WSAPD_Settings as $settingName=>$value) {
+	$WSAPD_Settings[$settingName] = WSAPD_getOption($settingName);
+}
+
 
 
