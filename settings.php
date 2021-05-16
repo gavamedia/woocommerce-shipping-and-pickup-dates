@@ -38,9 +38,7 @@ if (!class_exists('WSAPD_Settings')) {
 		}
 
 
-
-
-		function saveOption($optionName, $optionValue) {
+		function setOption($optionName, $optionValue) {
 			$optionName = self::CLASS_NAME . '-' . $optionName;
 
 			if (get_option($optionName) === false && update_option($optionName, false) === false)
@@ -50,10 +48,17 @@ if (!class_exists('WSAPD_Settings')) {
 		}
 
 
+
+
+		public static function GetSetting($settingName) {
+			return $settings[$settingName];
+		}
+
+
 		function saveSettings() {
 			if (isset($_REQUEST)) {
 
-				WSAPD_Settings::saveOption('enable-shipping-dates', $_REQUEST['enable-shipping-dates'] === 'true');
+				WSAPD_Settings::setOption('enable-shipping-dates', $_REQUEST['enable-shipping-dates'] === 'true');
 
 
 				echo 'saved';        
@@ -80,3 +85,5 @@ if (!class_exists('WSAPD_Settings')) {
 
 $WSAPD_settings = new WSAPD_Settings;
 $WSAPD_settings::init();
+
+
