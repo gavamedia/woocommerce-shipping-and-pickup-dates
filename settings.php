@@ -66,8 +66,8 @@ function WSAPD_ajaxSaveAllSettings() {
 
 
 // Load all settings
-foreach ($WSAPD_Settings as $settingName=>$value) {
-	$WSAPD_Settings[$settingName] = WSAPD_getOption($settingName);
+foreach ($WSAPD_Settings as $settingName=>&$value) {
+	$value = WSAPD_getOption($settingName);
 }
 
 
