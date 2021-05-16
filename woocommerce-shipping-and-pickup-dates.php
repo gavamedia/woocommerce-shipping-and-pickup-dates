@@ -81,7 +81,16 @@ if (!class_exists('WSAPD_Plugin')) {
 	
 			wp_enqueue_style('wsapd_css', $cssURL, array(), $cssVersion);
 
-			wp_enqueue_script('jquery');
+			//wp_enqueue_script('jquery');
+
+			// Load the datepicker script (pre-registered in WordPress).
+			wp_enqueue_script('jquery-ui-datepicker');
+
+			
+			// You need styling for the datepicker. For simplicity I've linked to the jQuery UI CSS on a CDN.
+			wp_register_style('jquery-ui', 'https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css');
+			wp_enqueue_style('jquery-ui');
+
 
 			wp_enqueue_script('wsapd_js', $jsURL, array(), $jsVersion);
 
@@ -141,10 +150,8 @@ if (!class_exists('WSAPD_Plugin')) {
 		}
 		
 		
+	
 		
-
-
-
 		
 
 		public static function init() {
@@ -153,8 +160,6 @@ if (!class_exists('WSAPD_Plugin')) {
 				add_action('admin_menu', 'WSAPD_Plugin::addToAdminMenu');
 				add_action('admin_notices', 'WSAPD_Plugin::admin_notice__error' );
 				add_action('admin_enqueue_scripts', 'WSAPD_Plugin::enqueueContent');
-
-				//wp_enqueue_script( 'jquery' );
 
 				// This bit is a special action hook that works with the WordPress AJAX functionality. 
 				add_action( 'wp_ajax_example_ajax_request', 'example_ajax_request' );
