@@ -68,22 +68,19 @@ if (!class_exists('WSAPD_Settings')) {
 			die();
 		}
 
-
-
-		public static function init() {
-
+		public function LoadAllSettings() {
 			foreach ($this->settings as $settingName=>$value) {
 
 				$this->settings[$settingName] = WSAPD_Settings::getOption($settingName);
 
 			}
-
 		}
+
 
 	}
 }
 
 $WSAPD_settings = new WSAPD_Settings;
-$WSAPD_settings::init();
+$WSAPD_settings::LoadAllSettings();
 
 
