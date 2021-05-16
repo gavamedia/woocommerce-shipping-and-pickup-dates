@@ -27,7 +27,9 @@
  
 $GLOBALS['WSAPD_Settings'] = [
 	'enable-shipping-dates' => '',
-	'enable-pickup-dates' => ''
+	'enable-pickup-dates' => '',
+	'require-shipping-date' => '',
+	'require-pickup-date' => ''
 ];
 
 
@@ -59,7 +61,7 @@ function WSAPD_ajaxSaveAllSettings() {
 		WSAPD_setOption('enable-pickup-dates', $_REQUEST['enable-pickup-dates'] === 'true');
 
 		WSAPD_setOption('require-shipping-date', $_REQUEST['require-shipping-date'] === 'true');
-		WSAPD_setOption('require-shipping-date', $_REQUEST['require-shipping-date'] === 'true');
+		WSAPD_setOption('require-pickup-date', $_REQUEST['require-pickup-date'] === 'true');
 
 
 
