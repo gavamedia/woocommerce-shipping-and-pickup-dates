@@ -23,53 +23,32 @@
  * xxxWC tested up to: 5.1.0
  */
 
-/*
-function wsapd_settings_init() {
-    // register a new setting for "reading" page
-    register_setting('reading', 'wsapd_setting_name');
- 
-    // register a new section in the "reading" page
-    add_settings_section(
-        'wsapd_settings_section',
-        'FSB Settings Section',
-        'wsapd_settings_section_cb',
-        'reading'
-    );
- 
-    // register a new field in the "wsapd_settings_section" section, inside the "reading" page
-    add_settings_field(
-        'wsapd_settings_field',
-        'FSB Setting',
-        'wsapd_settings_field_cb',
-        'reading',
-        'wsapd_settings_section'
-    );
+if (!class_exists('WSAPD_Settings')) {
+	class WSAPD_Settings {
+
+
+
+		function saveSettings() {
+			if (isset($_REQUEST)) {
+
+				$enableShippingDates = $_REQUEST['enable-shipping-dates'] === 'true';
+
+
+				// This bit is going to process our fruit variable into an Apple
+				//if ( $enableShippingDates == 'Banana' ) {
+				$enableShippingDates = 'New saved value: ' . $enableShippingDates;
+				//}
+
+				// Now let's return the result to the Javascript function (The Callback) 
+				echo $enableShippingDates;        
+			}
+
+			// Always die in functions echoing AJAX content
+			die();
+		}
+
+
+
+
+	}
 }
- 
-/**
- * register wsapd_settings_init to the admin_init action hook
- *
-add_action('admin_init', 'wsapd_settings_init');
-
-
-
-/**
- * callback functions
- *
- 
-// section content cb
-function wsapd_settings_section_cb() {
-    echo '<p>Free Spam Blocking Section Introduction.</p>';
-}
- 
-// field content cb
-function wsapd_settings_field_cb() {
-    // get the value of the setting we've registered with register_setting()
-    $setting = get_option('wsapd_setting_name');
-    // output the field
-    ?>
-    <input type="text" name="wsapd_setting_name" value="<?php echo isset( $setting ) ? esc_attr( $setting ) : ''; ?>">
-    <?php
-}
-
-*/

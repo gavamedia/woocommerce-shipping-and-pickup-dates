@@ -68,13 +68,9 @@ function wsapdSave() {
 	if (wsapdIsSaving) return false;
 
 	wsapdIsSaving = true;
-
 	$('#wsapd-save-button').css('opacity', '.5');
 
 	
-	//var ajx = new XMLHttpRequest();
-	//let ajax = new XMLHttpRequest();
-	//gavaAjax('example_ajax_request', parameters, returnFunction, cancelID);
 
 	// This does the ajax request (The Call).
 	$.ajax({

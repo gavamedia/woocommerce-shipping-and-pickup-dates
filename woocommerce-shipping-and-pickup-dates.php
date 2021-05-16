@@ -133,14 +133,11 @@ if (!class_exists('WSAPD_Main')) {
 		
 
 		public static function init() {
-			require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'ajax.php';
-			add_action( 'wp_ajax_wsapd_save_settings', 'WSAPD_Ajax::saveSettings' );
+			require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'settings.php';
+			add_action( 'wp_ajax_wsapd_save_settings', 'WSAPD_Settings::saveSettings' );
 
-			
 			// Admin only
 			if (is_admin()) {
-				require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'settings.php';
-
 				add_action('admin_menu', 'WSAPD_Main::addToAdminMenu');
 				add_action('admin_notices', 'WSAPD_Main::admin_notice__error' );
 				add_action('admin_enqueue_scripts', 'WSAPD_Main::enqueueContent');
