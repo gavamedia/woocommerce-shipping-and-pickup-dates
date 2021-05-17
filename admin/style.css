@@ -95,12 +95,19 @@
 
 
 #wsapd-save-button{
-  margin:1em 0;
+  margin: 1em 0;
   background-color: var(--wc-blue)!important;
   color: #fff;
   font-size: 1.5em;
 }
 
+
+#wsapd-add-custom-ship-date,#wsapd-add-custom-ship-date{
+	color: transparent;
+	&:focus {
+		outline: none;
+	}
+}
 #wsapd-add-custom-ship-date::-webkit-input-placeholder,#wsapd-add-custom-ship-date::placeholder{
   color:inherit;
 }
