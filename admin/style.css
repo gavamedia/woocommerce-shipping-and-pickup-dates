@@ -100,14 +100,11 @@
   font-size: 1.5em;
 }
 
-#wsapd-add-custom-ship-date::before{
-  font-family: WooCommerce;
-	speak: never;
-	font-weight: 400;
-	font-variant: normal;
-	text-transform: none;
-	content: "\e007";
+#wsapd-add-custom-ship-date::-webkit-input-placeholder,#wsapd-add-custom-ship-date::placeholder{
+  color:inherit;
 }
+
+
 
 
 .wsapd-area section{
