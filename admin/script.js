@@ -115,6 +115,8 @@ function wsapdAddNewDate(e) {
 	alert('changed: ' + caller.id);
 
 
+	caller.value = '';
+
 	/*
 	// Check if valid date
 	var newDate = new Date(Get('NewShipDate').value);
