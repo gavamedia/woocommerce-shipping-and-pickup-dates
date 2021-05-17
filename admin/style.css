@@ -83,18 +83,30 @@
   cursor: pointer;
   display: inline-block;
   padding: .5em 1em;
-  background:var(--e-context-primary-tint-1);
-  border-radius: 4px;
-  border-bottom: solid .25em rgba(0,0,0,.25);
+  background: var(--e-context-primary-tint-1)!important;
+  border-radius: 4px!important;
+  border-bottom: solid .25em rgba(0,0,0,.25)!important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 
 
 #wsapd-save-button{
   margin:1em 0;
-  background-color: var(--wc-blue);
+  background-color: var(--wc-blue)!important;
   color: #fff;
   font-size: 1.5em;
+}
+
+#wsapd-add-custom-ship-date::before{
+  font-family: WooCommerce;
+	speak: never;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	content: "\e007";
 }
 
 
