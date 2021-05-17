@@ -109,6 +109,27 @@ function wsapdSave() {
 
 
 
+function wsapdAddNewDate(e) {
+	alert('change?');
+	/*
+	// Check if valid date
+	var newDate = new Date(Get('NewShipDate').value);
+
+	if (!isNaN(newDate.getTime())) {
+		var li = document.createElement('li');
+		li.innerHTML = Get('NewShipDate').value + '<span onclick="parentNode.parentNode.removeChild(parentNode);">Remove</span>';
+		Get('ShipDates').appendChild(li);
+		prevShipDate = Get('NewShipDate').value;
+		Get('NewShipDate').value = '';
+		Get('ShipDates').scrollTop = Get('ShipDates').scrollHeight;
+	}
+	*/
+}
+
+
+
+
+
 
 
 
@@ -148,11 +169,13 @@ jQuery(document).ready(function($jQuery) {
 
 	// Enable date pickers
 	$('#wsapd-add-custom-ship-date').datepicker({
-		showOtherMonths: true,
-		selectOtherMonths: true,
+		minDate: -1,
 		dateFormat: 'MM d, yy'
 	});
-	$('#wsapd-add-custom-ship-date').datepicker();
+	
+	$('#wsapd-add-custom-ship-date').change(wsapdAddNewDate);
+	
+	
 	//$('#wsapd-add-custom-ship-date').datepicker('option', 'dateFormat', 'MM d, yy');
 	
 
