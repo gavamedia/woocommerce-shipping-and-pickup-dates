@@ -109,7 +109,7 @@
 	}
 }
 #wsapd-add-custom-ship-date::-webkit-input-placeholder,#wsapd-add-custom-ship-date::placeholder{
-  color:inherit;
+  color:red;
 }
 
 
