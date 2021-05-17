@@ -42,6 +42,15 @@ if (!Element.prototype.RemoveEvent)
   	else if (this.DetachEvent) this.DetachEvent(eventName, callFunction);
 	};
 
+// String contains
+if (!String.prototype.includes)
+	String.prototype.includes = function(search, start) {
+		'use strict';
+		if (typeof start !== 'number') start = 0;
+		
+		if (start + search.length > this.length) return false;
+		else return this.indexOf(search, start) !== -1;
+	};
 
 
 
@@ -109,27 +118,37 @@ function wsapdSave() {
 
 
 
+let prevShipDate = null;
+let prevPickupDate = null;
+
+
 function wsapdAddNewDate(e) {
 	let caller = e.target;
 
-	alert('changed: ' + caller.id);
-
-
-	caller.value = '';
-
-	/*
-	// Check if valid date
-	var newDate = new Date(Get('NewShipDate').value);
-
+	let newDate = new Date(caller.value);
 	if (!isNaN(newDate.getTime())) {
-		var li = document.createElement('li');
-		li.innerHTML = Get('NewShipDate').value + '<span onclick="parentNode.parentNode.removeChild(parentNode);">Remove</span>';
-		Get('ShipDates').appendChild(li);
-		prevShipDate = Get('NewShipDate').value;
-		Get('NewShipDate').value = '';
-		Get('ShipDates').scrollTop = Get('ShipDates').scrollHeight;
+
+		let li = document.createElement('li');
+		li.innerHTML = caller.value + '<span onclick="parentNode.parentNode.removeChild(parentNode);">Remove</span>';
+
+		// Add to either ship or pickup date
+		let dateElm = null;
+		if (caller.id.includes('ship')) {
+			prevShipDate = caller.value;
+			dateElm = GavaGet('wsapd-custom-ship-dates');
+		}
+		else {
+			prevPickupDate = caller.value;
+			dateElm = GavaGet('wsapd-custom-pickup-dates');
+		}
+
+		// Add date and scroll to bottom
+		dateElm.appendChild(li);
+		dateElm.scrollTop = dateElm.scrollHeight;
+
+		caller.value = '';
+
 	}
-	*/
 }
 
 
