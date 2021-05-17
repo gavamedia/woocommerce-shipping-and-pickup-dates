@@ -110,7 +110,10 @@ function wsapdSave() {
 
 
 function wsapdAddNewDate(e) {
-	alert('change?');
+	alert('changed: ' + e.id);
+
+
+
 	/*
 	// Check if valid date
 	var newDate = new Date(Get('NewShipDate').value);
@@ -169,7 +172,7 @@ jQuery(document).ready(function($jQuery) {
 
 	// Enable date pickers
 	$('#wsapd-add-custom-ship-date').datepicker({
-		minDate: -1,
+		minDate: 0,
 		dateFormat: 'MM d, yy'
 	});
 	
