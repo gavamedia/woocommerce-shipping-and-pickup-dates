@@ -110,8 +110,9 @@ function wsapdSave() {
 
 
 function wsapdAddNewDate(e) {
-	alert('changed: ' + e.id);
+	let caller = e.target;
 
+	alert('changed: ' + caller.id);
 
 
 	/*
