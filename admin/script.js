@@ -147,8 +147,13 @@ jQuery(document).ready(function($jQuery) {
 	
 
 	// Enable date pickers
-	$('#wsapd-custom-ship-date-calendar').datepicker();
-	$('#wsapd-custom-ship-date-calendar').datepicker('option', 'dateFormat', 'MM d, yy');
+	$('#wsapd-add-custom-ship-date').datepicker({
+		showOtherMonths: true,
+		selectOtherMonths: true,
+		dateFormat: 'MM d, yy'
+	});
+	$('#wsapd-add-custom-ship-date').datepicker();
+	//$('#wsapd-add-custom-ship-date').datepicker('option', 'dateFormat', 'MM d, yy');
 	
 
 });
