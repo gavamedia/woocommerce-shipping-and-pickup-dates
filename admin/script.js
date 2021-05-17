@@ -145,5 +145,11 @@ jQuery(document).ready(function($jQuery) {
 
 	GavaGet('wsapd-save-button').AddEvent('onclick', wsapdSave);
 	
+
+	// Enable date pickers
+	$('#wsapd-add-custom-ship-date').datepicker();
+	$('#wsapd-add-custom-ship-date').datepicker('option', 'dateFormat', 'MM d, yy');
+	
+
 });
 
